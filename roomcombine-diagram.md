@@ -8,7 +8,7 @@ A variable call it MODE which will have 3 values:
 * FORCE SEPARATE
   - will set the Combine State as SEPARATED
 * FORCE COMBINE
-  - will set the Combien State as COMBINED
+  - will set the Combine State as COMBINED
 
 ```mermaid
 flowchart TD
