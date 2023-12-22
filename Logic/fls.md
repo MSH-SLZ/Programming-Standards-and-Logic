@@ -5,6 +5,7 @@ When the processor boots up, assume that the fire system is not in alarm. Thus t
 
 A Crestron implementation:
 ```mermaid
+%%{init:{'theme':'dark'}}%%
 flowchart LR
     PP[/"Program Ready Pulse"/] -- enable --> SetNormal["BUF"]
     Sensor(("Fire Life Safety Sensor")) --> CL(("is Closed"))
