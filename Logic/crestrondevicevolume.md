@@ -2,6 +2,7 @@ Crestron Devices often use -800d to 240d to control their volume.
 Use the following logic to set the device volume as well as give feedback to the touch panel.
 
 ```mermaid
+%%{init:{"theme":"dark","curve":"linear","rightAngles":true}}%%
 flowchart LR
  subgraph INPUTS["INPUTS"]
         DM("Device Mute is On")

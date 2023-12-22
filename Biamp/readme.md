@@ -24,6 +24,10 @@ It is NOT default on the Tesira. This lower baud rate will ensure that longer ca
 | LVM-LECT | Level Control | Lectern Microphone Volume
 | MTE-CMIC | Mute Control | Mute Ceiling Microphones
 | MTE-PRV | Mute Control | Privacy Mute - Outgoing Audio to either VoIP or POTS |
+| VCS | Voip Control Status | |
+| VIDIALER | VoIP Dialer | |
+| TCS | POTS/TI Control Status | |
+| TIDIALER | POTS/TI Dialer | |
 
 ## Microphone LEDs and Mute
 It is recommended that the microphones' LEDs be controlled and synced with the DSP. Use the Logic output of the mute block to control the microphone's LEDs
