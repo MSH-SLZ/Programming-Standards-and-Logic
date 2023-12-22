@@ -10,3 +10,6 @@ Implementing an Force or Override Logic of a partition sensor
 
 ## [Mic Buttons and LEDs Syncing with Biamp](/Logic/micledwithbiamp.md)
 Regarding syncronizing a physical mute button, LED rings, and biamp.
+
+## [Crestron NVX](/Logic/crestronnvx.md)
+Regarding controlling a NVX endpoint or using it with Director
