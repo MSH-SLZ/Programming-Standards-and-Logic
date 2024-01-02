@@ -41,7 +41,7 @@ Here's a sample on how to setup your Tesira file.
 ### ![parle sample](parle-mute-sample.png)
 
 ## Shure MXA LEDs
-Shure MXA LEDs can be controlled from the Tesira. This leads to a software better design because there's no reliance on the Crestron or other control system processor to keep the DSP and the microphone LEDs in sync.
+Shure MXA LEDs can be controlled from the Tesira. This leads to a better software design because there's no reliance on the Crestron or other control system processor to keep the DSP and the microphone LEDs in sync.
 ### ![shure mute sample](shure-mute-sample.png)
 ### ![shure command strings](shure-command-strings.png)
 For a list of control commands see [Shure MXA Publication](https://pubs.shure.com/command-strings/MXA-MUTE/en-US)
