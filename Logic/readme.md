@@ -14,6 +14,9 @@ Regarding syncronizing a physical mute button, LED rings, and biamp.
 ## [Crestron NVX](/Logic/crestronnvx.md)
 Regarding controlling a NVX endpoint or using it with Director
 
+## [Crestron Toolbox Scripting](/ToolboxScripting/readme.md)
+Some samples of Crestron Toolbox
+
 ## VC4 User Folder Directory
 Replace ProgramID with the program ID of used in the VC4.
 /opt/crestron/virtualcontrol/RunningPrograms/[ProgramID]/User
