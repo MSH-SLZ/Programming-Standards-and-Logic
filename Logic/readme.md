@@ -21,7 +21,7 @@ Some samples of Crestron Toolbox
 Replace ProgramID with the program ID of used in the VC4.
 /opt/crestron/virtualcontrol/RunningPrograms/[ProgramID]/User
 
-## Default Config.json (/Logic/Default%20Config.json)
+## [Default Config.json] (/Logic/Default%20Config.json)
 Default Configuration json file
 
 ## Config Audio DM Address:
