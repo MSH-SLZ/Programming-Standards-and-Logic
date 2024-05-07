@@ -1,0 +1,268 @@
+{
+    "schema": "StaticConfig_1_3_2",
+    "Rooms":[
+        {
+            "Site":"",
+            "RoomName":"",
+            "UseExternalDsp":false,
+            "DisplayAutoOn":false,
+            "Startup":{
+                "PresetRoute":0,
+                "ProgramVolumeLevel":70,
+                "MicVolumeLevel":70,
+                "VtcVolumeLevel":70,
+                "DspPreset":0
+            },
+            "Shutdown":{
+                "PresetRoute":1,
+                "ProgramVolumeLevel":70,
+                "MicVolumeLevel":70,
+                "VtcVolumeLevel":70,
+                "DspPreset":1
+            },
+            "RoomAudio":{
+                "ProgramVolume": { "DMAddress": -1, "DSPFader": -1},
+                "MicVolume":     { "DMAddress": -1, "DSPFader": -1},
+                "AtcVolume":     { "DMAddress": -1, "DSPFader": -1},
+                "VtcVolume":     { "DMAddress": -1, "DSPFader": -1},
+                "PrivacyMute":   { "DMAddress": -1, "DSPFader": -1}
+            },
+            "VTCShareDestination":-1,
+            "Combinable":false,
+            "CombinablePosition":"master",
+            "SourceVisibility":[
+                true,true,true,true,
+                true,true,true,true,
+                true,true,true,true,
+                true,true,true,true
+            ],
+            "DestinationVisibility":[
+                true,true,true,true,
+                true,true,true,true,
+                true,true,true,true,
+                true,true,true,true
+            ],
+            "FaderVisibility":[
+                true,true,true,true,
+                true,true,true,true,
+                true,true,true,true,
+                true,true,true,true
+            ],
+            "DisplayVisibility":[
+                true,true,true,true,
+                true,true,true,true,
+                true,true,true,true,
+                true,true,true,true
+            ],
+            "CameraVisibility":[
+                true,true,true,true
+            ],
+            "BasicRoutingDestinations":[0,1]
+        }
+    ],
+
+    "Matrices":[
+        {
+            "Id":0, "Label":"DM",
+            "Inputs":16,
+            "Outputs":16,
+            "IP":"",
+            "Username":"",
+            "Password":"",
+            "InputLabels":[
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16"
+            ],
+            "OutputLabels":[
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16"
+            ]
+        }
+    ],
+    "Sources":[
+        { "Id": 0, "Label": "Laptop", "Icon":"Laptop", "Location":"", "ShowControls":"none", "Message": "", "Input":0, "Matrix":0, "IrPort":"", "SerialPort":"", "DriverPath":"", "DisableDestinations":[], "GroupTags":[], "DeviceIndex":-1, "PreviewUrl":""}
+    ],
+    "Destinations":[
+        { "Id": 0, "Label": "Display", "Icon":"TV", "Location":"", "ShowVideoMute":false, "GroupTags":[], "Output":1, "Matrix":0}
+    ],
+    "RoutingRules":[
+
+    ],
+    "Displays":[
+        {   "Id":0, "Label":"",
+            "Location":"",
+            "Icon":"TV",
+            "IsAProjector": false,
+            "HasScreen": false,
+            "DriverPath":"",
+            "SerialPort":"",
+            "IrPort":"",
+            "CecPort":"",
+            "IP":"",
+            "Username":"",
+            "Password":"",
+            "GroupTags":[]
+        }
+    ],
+    "DSP":{
+        "IP":"",
+        "Username":"",
+        "Password":"",
+        "Presets":[
+            "Startup",
+            "Shutdown"
+        ],
+        "Snapshots":[
+            { "Name": "SystemPower", "Bank": 1},
+            { "Name": "SystemPower", "Bank": 2}
+        ],
+        "Voip":{
+            "Enable":false,
+            "RxLevelInstanceTag":"",
+            "RxLevelChannel":0,
+            "RxMuteInstanceTag":"",
+            "RxMuteChannel":0,
+            "EnablePrivacy":false,
+            "PrivacyInstanceTag":"",
+            "PrivacyChannel":0,
+            "ControlStatusInstanceTag":"",
+            "DialerInstanceTag":""
+        },
+        "Faders":[
+            { "Id":0, "Label":"Program", "Location":"", "HasLevel": true, "HasMute": true, "MuteType":0, "LevelControl":"LVM-PGM", "MuteControl":"LVM-PGM", "LevelIndex":1, "MuteIndex":1, "GroupTags":[]}
+        ]
+    },
+    "Cameras":[
+        {   "Id": 0, "Label": "Camera 1",
+            "Location":"",
+            "IP":"",
+            "PanSpeed": 10,
+            "TiltSpeed": 10,
+            "ZoomSpeed": 10,
+            "PreviewType": "",
+            "PreviewSource":"",
+            "Username":"",
+            "Password":"",
+            "Preset":[
+                "Preset 1",
+                "Preset 2",
+                "Preset 3",
+                "Preset 4",
+                "Preset 5",
+                "Preset 6"
+            ],
+            "GroupTags":[]
+        }
+    ],
+    "Recorders":[
+        {
+            "IP":"",
+            "Username":"",
+            "Password":"",
+            "GroupTags":[]
+        }
+    ],
+
+    "PresetRoutes":[
+        { "Id": 0, "Label": "Startup",
+            "Routes":[
+                { "Source":0, "Destination":1, "AllDestinations": false}
+            ]
+        },
+        { "Id": 1, "Label": "Shutdown",
+            "Routes":[
+                { "Source":-1, "Destination":1, "AllDestinations": true}
+            ]
+        }
+    ],
+    "Touchpanels":[
+        {   "Id": 0,
+            "LogoPassword":"",
+            "Startup":{
+                "Menu":-1,
+                "AudioGroup":-1,
+                "Source": -1,
+                "DestinationGroup":-1,
+                "DisplayGroup":-1,
+                "TechMenu":-1
+            },
+            "Menus":[
+                { "Id": 0, "Visible": true, "Label": "Presentation", "Icon": "Laptop", "Source":-1, "Description":"", "PresetRoute":-1, "SourceGroup":-1, "Message":"", "Password":""}
+            ],
+            "TechMenus":[
+                { "Id": 0, "Visible": false, "Label": ""}
+            ],
+            "PageStyles":{
+                "Volume": 0,
+                "Routing": 0
+            },
+            "SourcesVisible":[
+                true,true,true,true,
+                true,true,true,true,
+                true,true,true,true,
+                true,true,true,true
+            ],
+            "DestinationsVisible":[
+                true,true,true,true,
+                true,true,true,true,
+                true,true,true,true,
+                true,true,true,true
+            ],
+            "FadersVisible":[
+                true,true,true,true,
+                true,true,true,true,
+                true,true,true,true,
+                true,true,true,true
+            ],
+            "CamerasVisible":[
+                true,true,true
+            ],
+            "VideoConference":{
+                "ShareSourceVisibility":[
+                    true,true,true,true,
+                    true,true,true,true,
+                    true,true,true,true,
+                    true,true,true,true
+                ]
+            },
+            "VideoWallLayoutsVisible":[
+                true,true,true,true,
+                true,true,true,true,
+                true,true,true,true,
+                true,true,true,true
+            ],
+            "DisplayGroups":[],
+            "AudioGroups":[],
+            "SourceGroups":[],
+            "DestinationGroups":[]
+        }
+    ]
+}
