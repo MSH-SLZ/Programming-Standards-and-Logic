@@ -1,5 +1,5 @@
 {
-    "schema": "StaticConfig_1_3_2",
+    "$schema": "./staticconfig_1_3_2.schema.json",
     "Rooms":[
         {
             "Site":"",
@@ -108,7 +108,7 @@
         }
     ],
     "Sources":[
-        { "Id": 0, "Label": "Laptop", "Icon":"Laptop", "Location":"", "ShowControls":"none", "Message": "", "Input":0, "Matrix":0, "IrPort":"", "SerialPort":"", "DriverPath":"", "DisableDestinations":[], "GroupTags":[], "DeviceIndex":-1, "PreviewUrl":""}
+        { "Id": 0, "Label": "Laptop", "Icon":"Laptop", "Location":"", "ShowControls":"none", "Message": "", "Input":1, "Matrix":0, "IrPort":"", "SerialPort":"", "DriverPath":"", "DisableDestinations":[], "GroupTags":[], "DeviceIndex":-1, "PreviewUrl":""}
     ],
     "Destinations":[
         { "Id": 0, "Label": "Display", "Icon":"TV", "Location":"", "ShowVideoMute":false, "GroupTags":[], "Output":1, "Matrix":0}

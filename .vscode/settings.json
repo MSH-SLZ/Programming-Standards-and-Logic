@@ -1,0 +1,15 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": [
+                ".*config.json"
+            ],
+            "url": "./staticconfig_1_3_2.schema.json"
+        }
+    ],
+    "cSpell.words": [
+        "appletv",
+        "cameranopreview",
+        "camerawithpreview"
+    ]
+}

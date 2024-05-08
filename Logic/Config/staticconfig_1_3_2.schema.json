@@ -1,0 +1,805 @@
+{
+    "$schema":"http://json-schema.org/draft-07/schema",
+
+    "title": "StaticConfig",
+    "description": "A configuration file used for deployment of crestron programs",
+    "type": "object",
+
+    "properties": {
+        "Rooms":{
+            "description":"an array of room objects",
+            "type":"array",
+            "minimum": 1,
+            "items":{
+                "type":"object",
+                "description": "a room",
+                "properties": {
+                    "Site": {
+                        "type":"string",
+                        "description":"the site name, sometimes shown on the logo screen of the touch panel",
+                        "default":"site name"
+                    },
+                    "RoomName":{
+                        "type":"string",
+                        "description":"the system or room name, shown on the header bar of the touch panel",
+                        "default":"room name"
+                    },
+                    "UseExternalDsp":{
+                        "type":"boolean",
+                        "description":"set to true if using an external dsp such as a biamp or qsys",
+                        "default":false
+                    },
+                    "DisplayAutoOn":{
+                        "type":"boolean",
+                        "description":"set to true if displays should turn on at logo press",
+                        "default":false
+                    },
+                    "Startup":{
+                        "$ref": "#/$defs/RoomStartupShutdown"
+                    },
+                    "Shutdown":{
+                        "$ref": "#/$defs/RoomStartupShutdown"
+                    },
+                    "RoomAudio":{
+                        "type":"object",
+                        "description": "maps specific volume controls to DM or DSP faders",
+                        "properties": {
+                            "ProgramVolume":{
+                                "description": "map the program volume control of a room to a dm or dsp fader",
+                                "$ref": "#/$defs/RoomAudioItem"
+                            },
+                            "MicVolume":{
+                                "description": "map the mic volume control of a room to a dm or dsp fader",
+                                "$ref": "#/$defs/RoomAudioItem"
+                            },
+                            "AtcVolume":{
+                                "description": "map the atc volume control of a room to a dm or dsp fader",
+                                "$ref": "#/$defs/RoomAudioItem"
+                            },
+                            "VtcVolume":{
+                                "description": "map the vtc volume control of a room to a dm or dsp fader",
+                                "$ref": "#/$defs/RoomAudioItem"
+                            },
+                            "PrivacyMute":{
+                                "description": "map the privacy mute control of a room to a dm or dsp fader",
+                                "$ref": "#/$defs/RoomAudioItem"
+                            }
+                        }
+                    },
+                    "VTCShareDestination":{
+                        "type":"integer",
+                        "description":"the destination index that is the content or share destination for the VTC",
+                        "default":-1
+                    },
+                    "Combinable":{
+                        "type":"boolean",
+                        "description":"set to true if this room is combinable with another. not yet implemented",
+                        "default":false
+                    },
+                    "CombinablePosition":{
+                        "type":"string",
+                        "description":"set the relationship with other rooms. not yet implemented",
+                        "default":"master",
+                        "enum":["master", "controllableslave", "lockedslaved"]
+                    },
+                    "SourceVisibility":{
+                        "type":"array",
+                        "description":"an array of boolean indicating that source should be visible for this room",
+                        "items": {
+                            "type":"boolean"
+                        }
+                    },
+                    "DestinationVisibility": {
+                        "type":"array",
+                        "description":"an array of boolean indicating that destination should be visible for this room",
+                        "items":{
+                            "type":"boolean"
+                        }
+                    },
+                    "FaderVisibility":{
+                        "type":"array",
+                        "description":"an array of boolean indicating that fader should be visible for this room",
+                        "items":{
+                            "type":"boolean"
+                        }
+                    },
+                    "DisplayVisibility":{
+                        "type":"array",
+                        "description":"an array of boolean indicating that display should be visible for this room",
+                        "items":{
+                            "type":"boolean"
+                        }
+                    },
+                    "CameraVisibility":{
+                        "type":"array",
+                        "description":"an array of boolean indicating that camera should be visible for this room",
+                        "items":{
+                            "type":"boolean"
+                        }
+                    },
+                    "BasicRoutingDestinations":{
+                        "type":"array",
+                        "description":"an array of destination indexes that should be routed to when a source is selected",
+                        "items":{
+                            "type":"integer"
+                        }
+                    }
+                }
+            }
+
+        },
+        "Matrices":{
+            "description":"an array of matrix objects",
+            "type":"array",
+            "items":{
+                "type":"object",
+                "description": "a matrix object",
+                "properties": {
+                    "Id": {
+                        "type":"integer",
+                        "description": "a number used to sort this array",
+                        "minimum": 0,
+                        "default": 0
+                    },
+                    "Label":{
+                        "type":"string",
+                        "description": "a unique label for this matrix. this must match a module parameter in crestron code. talk to your programmer before changing or adding",
+                        "default":"DM"
+                    },
+                    "Inputs":{
+                        "type":"integer",
+                        "description": "the number of inputs on this matrix",
+                        "minimum": 1,
+                        "default":16
+                    },
+                    "Outputs":{
+                        "type":"integer",
+                        "description": "the number of outputs on this matrix",
+                        "minimum": 1,
+                        "default":16
+                    },
+                    "IP":{
+                        "type":["string","null"],
+                        "description": "the ip address or hostname of the matrix switcher",
+                        "default":""
+                    },
+                    "Username":{
+                        "type":["string","null"],
+                        "description": "the username to log into matrix switcher",
+                        "default":""
+                    },
+                    "Password":{
+                        "type":["string","null"],
+                        "description": "the password to log into matrix switcher",
+                        "default":""
+                    },
+                    "InputLabels":{
+                        "type":"array",
+                        "description": "an array of strings in order of input",
+                        "items": {
+                            "type":"string",
+                            "description": "the label of the input"
+                        },
+                        "minimum": 1
+                    },
+                    "OutputLabels":{
+                        "type":"array",
+                        "description": "an array of strings in order of output",
+                        "items": {
+                            "type":"string",
+                            "description": "the label of the output"
+                        },
+                        "minimum": 1
+                    }
+                }
+            }
+        },
+        "Sources":{
+            "description":"an array of source objects",
+            "type":"array",
+            "items": {
+                "type":"object",
+                "description": "a source",
+                "properties": {
+                    "Id": {
+                        "type": "integer",
+                        "description": "used to sort this array",
+                        "default":0
+                    },
+                    "Label": {
+                        "type":"string",
+                        "description": "the text shown on buttons and other elements",
+                        "default":"Laptop"
+                    },
+                    "Icon":{
+                        "type":"string",
+                        "description": "the icon to shown on the panel",
+                        "default":"Laptop",
+                        "$ref":"#/$defs/icons"
+                    },
+                    "Location":{
+                        "type":"string",
+                        "description": "the location of the source. not all projects use this property",
+                        "default":""
+                    },
+                    "ShowControls":{
+                        "type":"string",
+                        "description": "the type of controls to show. set to nothing '' if there is no controls",
+                        "enum":[
+                            "",
+                            "none",
+                            "bluray",
+                            "catv",
+                            "cameranopreview",
+                            "camerawithpreview",
+                            "appletv",
+                            "message"
+                        ],
+                        "default":""
+                    },
+                    "Message":{
+                        "type":"string",
+                        "description": "the text to show if message is the ShowControls",
+                        "default":""
+                    },
+                    "Input": {
+                        "type":"integer",
+                        "description": "the input on the matrix switcher this source is plugged into",
+                        "minimum": 1,
+                        "default": 1
+                    },
+                    "Matrix": {
+                        "type":"integer",
+                        "description": "the matrix index number this source uses",
+                        "default":0,
+                        "minimum": 0
+                    },
+                    "IrPort":{
+                        "type":"string",
+                        "description": "the ir port address to use. IR ports on the processor uses 0.[port-number]. Transmitters use 5X.1. Receivers use 7X.1",
+                        "default":"",
+                        "$ref":"#/$defs/SerialIrPorts"
+                    },
+                    "SerialPort":{
+                        "type":"string",
+                        "description": "the serial port address to use. Serial ports on the processor uses 0.[port-number]. Transmitters use 5X.1. Receivers use 7X.1",
+                        "default":"",
+                        "$ref":"#/$defs/SerialIrPorts"
+                    },
+                    "DriverPath":{
+                        "type":"string",
+                        "description": "the driver dll or pkg file to be used. talk to your programmer for valid drivers and implementation",
+                        "default":"user/driver.pkg"
+                    },
+                    "DisableDestinations":{
+                        "type":"array",
+                        "description": "an array of destination indexes that should be disabled when this source is selected.",
+                        "items": {
+                            "type":"integer",
+                            "description": "the index of the destination to be disabled",
+                            "minimum": 0
+                        }
+                    },
+
+                    "GroupTags": { "$ref": "#/$defs/GroupTags"},
+
+                    "DeviceIndex":{
+                        "type":"integer",
+                        "description": "the device index when multiple sources have the same showcontrols",
+                        "minimum": -1
+                    },
+                    "PreviewUrl":{
+                        "type":"string",
+                        "description": "the url to be used in as a preview image for this source",
+                        "default":""
+                    }
+
+                }
+            }
+        },
+        "Destinations":{
+            "description":"an array of destination objects",
+            "type":"array",
+            "items": {
+                "type":"object",
+                "description": "a destination",
+                "properties": {
+                    "Id": {
+                        "type": "integer",
+                        "description": "used to sort this array",
+                        "default":0
+                    },
+                    "Icon":{
+                        "type":"string",
+                        "description": "the icon to shown on the panel",
+                        "default":"TV",
+                        "$ref":"#/$defs/icons"
+                    },
+                    "Label": {
+                        "type":"string",
+                        "description": "the text shown on buttons and other elements",
+                        "default":"TV"
+                    },
+                    "Location":{
+                        "type":"string",
+                        "description": "the location of the source. not all projects use this property",
+                        "default":""
+                    },
+                    "ShowVideoMute":{
+                        "type":"boolean",
+                        "description": "show the mute button on the destination",
+                        "default":false
+                    },
+                    "Output":{
+                        "type":"integer",
+                        "description": "the output on the matrix switcher this destination is plugged into",
+                        "minimum": 1,
+                        "default": 1
+                    },
+                    "Matrix": {
+                        "type":"integer",
+                        "description": "the matrix index number this destination uses",
+                        "default":0,
+                        "minimum": 0
+                    },
+                    "GroupTags": { "$ref": "#/$defs/GroupTags"}
+                }
+            }
+        },
+        "RoutingRules":{
+            "description":"an array of strings that govern how sources are routed to destinations",
+            "type":"array",
+            "default":[],
+            "items": {
+                "default":"",
+                "oneOf": [
+                    {
+                        "description": "tie a source to a matrix input",
+                        "type":"string",
+                        "pattern": "^Tie Source\\.(\\d*) Matrix.(\\d*).In.(\\d*)"
+                    },
+                    {
+                        "description": "tie a matrix to another matrix",
+                        "type":"string",
+                        "pattern": "^Tie Matrix.(\\d*).In.(\\d*) Matrix.(\\d*).Out.(\\d*)"
+                    },
+                    {
+                        "description": "avoid a matrix output when routing a destination",
+                        "type":"string",
+                        "pattern": "^AvoidPath Destination\\.(\\d*) Matrix\\.(\\d*)\\.Out\\.(\\d*)"
+                    },
+                    {
+                        "description": "conditional feedback",
+                        "type":"string",
+                        "pattern": "^ConditionalFeedback Matrix\\.(\\d*)\\.In\\.(\\d*)\\.Out\\.(\\d*) Source\\.(\\d*)"
+                    }
+                ],
+                "defaultSnippets":[
+                    {
+                        "label":"Tie Source",
+                        "description":"tie a source to a matrix input",
+                        "body":"Tie Source.$1 Matrix.$2.In.$3"
+                    },
+                    {
+                        "label":"Follow",
+                        "description":"Set a destination to follow another destination",
+                        "body":"Destination.$1 Follow.$2"
+                    },
+                    {
+                        "label":"Tie Destination",
+                        "description":"tie a destination to a matrix output",
+                        "body":"Destination.$1 Matrix.$2.Out.$3"
+                    },
+                    {
+                        "label":"Mirror Group Add",
+                        "description":"add a destination to a Mirror Group",
+                        "body":"MirrorGroup.$1 Add.$2"
+                    },
+                    {
+                        "label":"Tie Matrices",
+                        "description":"tie a matrix output to another matrix's input",
+                        "body":"Tie Matrix.$1.Out.$2 Matrix.$3.In.$4"
+                    },
+                    {
+                        "label":"Conditional Feedback",
+                        "description":"adds a conditional Feedback rule",
+                        "body":"ConditionalFeedback Matrix.$1.In.$2.Out.$3 Source.$4"
+                    },
+                    {
+                        "label":"Avoid Path",
+                        "description":"adds a rule to avoid a matrix output when routing to a destination",
+                        "body":"AvoidPath Destination.$1 Matrix.$2.Out.$3"
+                    }
+
+                ]
+            }
+        },
+        "Displays":{
+            "type":"array",
+            "description": "an array of display objects",
+            "items": {
+                "type":"object",
+                "description": "a monitor or projector",
+                "properties": {
+                    "Id": {
+                        "type":"integer",
+                        "description": "a number used for sorting this array",
+                        "default":0
+                    },
+                    "Label":{
+                        "type":"string",
+                        "description": "the text shown on the touch panel",
+                        "default":"Display 1"
+                    },
+                    "Icon":{
+                        "type":"string",
+                        "description": "the icon shown on the touch panel",
+                        "default":"TV"
+                    },
+                    "Location":{
+                        "type":"string",
+                        "description": "the physical location of the device. usually a room name",
+                        "default":""
+                    },
+                    "IsAProjector":{
+                        "type":"boolean",
+                        "description": "set to true if device is a projector. used for setting visibility on screen, video mute, or lamp hours visibility",
+                        "default":false
+                    },
+                    "HasScreen":{
+                        "type":"boolean",
+                        "description": "set to true to show screen up/down controls",
+                        "default": false
+                    },
+                    "DriverPath":{
+                        "type":"string",
+                        "description": "the driver path to use to control this display",
+                        "default":"",
+                        "oneOf": [
+                            {
+                                "type":"string",
+                                "maxLength": 0
+                            },
+                            {
+                                "type":"string",
+                                "pattern": "\/user\/.*\\.(pkg|dll)"
+                            },
+                            {
+                                "type":"string",
+                                "enum": [
+                                    "default-sammdc",
+                                    "default-samex",
+                                    "default-epson",
+                                    "default-chritiee",
+                                    "default-chritieg",
+                                    "default-planar",
+                                    "default-lg"
+                                ]
+                            }
+                        ]
+
+                    },
+                    "SerialPort":{
+                        "description":"physical port address to control the display",
+                        "type":"string",
+                        "default":"",
+                        "$ref": "#/$defs/SerialIrPorts"
+                    },
+                    "IrPort":{
+                        "type":"string",
+                        "description":"physical port address to control the display",
+                        "default":"",
+                        "$ref": "#/$defs/SerialIrPorts"
+                    },
+                    "CecPort":{
+                        "type":"string",
+                        "description":"physical port address to control the display",
+                        "default":"",
+                        "$ref": "#/$defs/SerialIrPorts"
+                    },
+                    "IP":{
+                        "type":"string",
+                        "description": "ip address to control the display",
+                        "default":""
+                    },
+                    "Username":{
+                        "type":"string",
+                        "description": "username to control the display",
+                        "default":""
+                    },
+                    "Password":{
+                        "type":"string",
+                        "description": "password to control the display",
+                        "default":""
+                    },
+                    "GroupTags": { "$ref": "#/$defs/GroupTags"}
+                }
+            }
+        },
+        "DSP":{
+            "type":"object",
+            "description": "defines the connection to a dsp and objects to subscribe to and maps to faders",
+            "properties": {
+                "IP": {
+                    "type":"string",
+                    "description": "the ip address of the dsp",
+                    "default":"192.168.1.141"
+                },
+                "Username":{
+                    "type":"string",
+                    "description": "username used to control the dsp",
+                    "default":""
+                },
+                "Password":{
+                    "type":"string",
+                    "description": "password used to control the dsp",
+                    "default":""
+                },
+                "Presets":{
+                    "type":"array",
+                    "description":"biamp preset names",
+                    "default":["Startup", "Shutdown"],
+                    "items":{
+                        "type":"string",
+                        "description": "the biamp dsp preset name",
+                        "default":"Startup"
+                    }
+                },
+                "Snapshots":{
+                    "type":"array",
+                    "description": "qsys snapshots. these will be used as a dsp preset to be recalled",
+                    "items": {
+                        "type":"object",
+                        "description": "the snapshot name and bank number",
+                        "properties": {
+                            "Name": {
+                                "type":"string",
+                                "description": "the name of the snapshot",
+                                "default":"SystemPower"
+                            },
+                            "Bank": {
+                                "type":"integer",
+                                "description": "the bank number in the snapshot to recall or load",
+                                "default":1,
+                                "minimum": 1,
+                                "maximum": 12
+                            }
+                        }
+                    }
+                },
+                "Voip":{
+                    "type":"object",
+                    "description": "voip information and control",
+                    "properties": {
+                        "Enable":{
+                            "type":"boolean",
+                            "description": "enables the voip modules in code",
+                            "default":false
+                        },
+                        "RxLevelInstanceTag":{
+                            "type":"string",
+                            "description": "instance of level block to be used a atc receive volume control",
+                            "default":""
+                        },
+                        "RxLevelChannel":{
+                            "type":"integer",
+                            "description": "the channel number in the level block",
+                            "default":0
+                        },
+                        "RxMuteInstanceTag":{
+                            "type":"string",
+                            "description": "instance of level block to be used a atc receive mute control",
+                            "default":""
+                        },
+                        "RxMuteChannel":{
+                            "type":"integer",
+                            "description": "the channel number in the level block",
+                            "default":0
+                        },
+                        "EnablePrivacy":{
+                            "type":"boolean",
+                            "description": "enables the privacy mute modules in code",
+                            "default":false
+                        },
+                        "PrivacyInstanceTag":{
+                            "type":"string",
+                            "description": "instance of level or mute block to be used a atc receive mute control",
+                            "default":""
+                        },
+                        "PrivacyChannel":{
+                            "type":"integer",
+                            "description": "the channel number in the level block",
+                            "default":0
+                        },
+                        "ControlStatusInstanceTag":{
+                            "type":"string",
+                            "description": "instance tag of Control Status block",
+                            "default":""
+                        },
+                        "DialerInstanceTag":{
+                            "type":"string",
+                            "description": "instance tag of Dialer block",
+                            "default":""
+                        }
+                    }
+                },
+                "Faders":{
+                    "type":"array",
+                    "description": "an array of faders",
+                    "default":[],
+                    "items":{
+                        "type":"object",
+                        "description": "a fader",
+                        "properties": {
+                            "Id": {
+                                "type":"integer",
+                                "description": "a number that is used to sort the array",
+                                "default":0
+                            },
+                            "Label":{
+                                "type":"string",
+                                "description": "text to shown on the touch panels",
+                                "default":"Program"
+                            },
+                            "Location":{
+                                "type":"string",
+                                "description": "text to shown on the touch panels",
+                                "default":""
+                            },
+                            "HasLevel": {
+                                "type":"boolean",
+                                "description": "used to show or hide the slider or up/down controls on the touchpanel",
+                                "default":true
+                            },
+                            "HasMute": {
+                                "type":"boolean",
+                                "description": "used to show or hide the mute button on the touchpanel",
+                                "default":true
+                            },
+                            "MuteType":{
+                                "type":"integer",
+                                "description": "controls the icon shown on the mute button. 0 = speaker icon, 1 = mic icon",
+                                "default":0
+                            },
+                            "LevelControl":{
+                                "type":"string",
+                                "description": "the instance tag or named control for controlling the level",
+                                "default":"LVM-PGM"
+                            },
+                            "MuteControl":{
+                                "type":"string",
+                                "description": "the instance tag or named control for controlling the mute",
+                                "default":"LVM-PGM"
+                            },
+                            "LevelIndex":{
+                                "type":"integer",
+                                "description": "the channel number in the level block",
+                                "default": 1,
+                                "minimum": 1
+                            },
+                            "MuteIndex":{
+                                "type":"integer",
+                                "description": "the channel number in the level or mute block",
+                                "default": 1,
+                                "minimum": 1
+                            },
+                            "GroupTags": { "$ref": "#/$defs/GroupTags"}
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "$defs":{
+        "icons":{
+            "type":"string",
+            "enum":[
+                "Blank",
+                "Laptop",
+                "TV"
+            ]
+        },
+        "SerialIrPorts":{
+            "enum": [
+                "",
+                "0.1",
+                "0.2",
+                "0.3",
+                "0.4",
+                "0.5",
+                "0.6",
+                "0.7",
+                "0.8",
+                "51.1",
+                "52.1",
+                "53.1",
+                "54.1",
+                "55.1",
+                "56.1",
+                "57.1",
+                "58.1",
+                "59.1",
+                "5A.1",
+                "5B.1",
+                "5C.1",
+                "5D.1",
+                "5E.1",
+                "5F.1",
+                "71.1",
+                "72.1",
+                "73.1",
+                "74.1",
+                "75.1",
+                "76.1",
+                "77.1",
+                "78.1",
+                "79.1",
+                "7A.1",
+                "7B.1",
+                "7C.1",
+                "7D.1",
+                "7E.1",
+                "7F.1"
+            ]
+        },
+        "RoomStartupShutdown":{
+            "type":"object",
+            "description":"sets the startup properties of a room such as volume or a preset",
+            "properties":{
+                "PresetRoute":{
+                    "type":"integer",
+                    "description":"The index number of a preset route. Use -1 to indicate no preset route",
+                    "default":-1
+                },
+                "ProgramVolumeLevel":{
+                    "type":"integer",
+                    "description":"the percentage value to set program volume level. This is ignored if a dsp preset is defined.",
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "MicVolumeLevel":{
+                    "type":"integer",
+                    "description":"the percentage value to set mic volume level. This is ignored if a dsp preset is defined.",
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "VtcVolumeLevel":{
+                    "type":"integer",
+                    "description":"the percentage value to set vtc volume level. This is ignored if a dsp preset is defined.",
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "DspPreset":{
+                    "type":"integer",
+                    "description":"the dsp preset index number to run at room system on or startup. Use -1 to indicate no dsp preset",
+                    "minimum":-1,
+                    "default":-1
+                }
+            }
+        },
+        "RoomAudioItem":{
+            "type":"object",
+            "properties":{
+                "DMAddress":{
+                    "type":"integer",
+                    "description": "maps a specific volume to a DM address usually used in a DMPS system. Use -1 to indicate none",
+                    "default":-1
+                },
+                "DSPFader":{
+                    "type":"integer",
+                    "description": "the index of a dsp fader. Use -1 to indicate none",
+                    "default":-1
+                }
+            }
+        },
+        "GroupTags":{
+            "type":"array",
+            "description": "an array of strings to associate with this display, used in filtering",
+            "default":[],
+            "items": {
+                "type":"string",
+                "default":""
+            }
+        }
+    }
+}
