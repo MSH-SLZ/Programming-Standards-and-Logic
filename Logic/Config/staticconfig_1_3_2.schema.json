@@ -343,7 +343,23 @@
                         "minimum": 0
                     },
                     "GroupTags": { "$ref": "#/$defs/GroupTags"}
-                }
+                },
+                "default":
+                    { "Id": 0, "Label": "Display", "Icon":"TV", "Location":"", "ShowVideoMute":false, "GroupTags":[], "Output":1, "Matrix":0},
+                "defaultSnippets":[
+                    {
+                        "label":"Display",
+                        "description":"a display destination",
+                        "body":
+                            { "Id": 0, "Label": "Display", "Icon":"TV", "Location":"", "ShowVideoMute":false, "GroupTags":[], "Output":1, "Matrix":0}
+                    },
+                    {
+                        "label":"Projector",
+                        "description":"a projector destination",
+                        "body":
+                            { "Id": 0, "Label": "Projector", "Icon":"Projector", "Location":"", "ShowVideoMute":false, "GroupTags":[], "Output":1, "Matrix":0}
+                    }
+                ]
             }
         },
         "RoutingRules":{
@@ -513,7 +529,52 @@
                         "default":""
                     },
                     "GroupTags": { "$ref": "#/$defs/GroupTags"}
-                }
+                },
+                "defaultSnippets":[
+                    {
+                        "label":"Display",
+                        "description":"a display",
+                        "body":
+                        {
+                            "Id":0,
+                            "Label":"Display",
+                            "Location":"",
+                            "Icon":"TV",
+                            "IsAProjector": false,
+                            "HasScreen": false,
+                            "DriverPath":"default-sammdc",
+                            "SerialPort":"0.1",
+                            "IrPort":"",
+                            "CecPort":"",
+                            "IP":"",
+                            "Username":"",
+                            "Password":"",
+                            "GroupTags":[]
+                        }
+                    },
+                    {
+                        "label":"Projector",
+                        "description":"a display",
+                        "body":
+                        {
+                            "Id":0,
+                            "Label":"Projector",
+                            "Location":"",
+                            "Icon":"Projector",
+                            "IsAProjector": true,
+                            "HasScreen": true,
+                            "DriverPath":"default-epson",
+                            "SerialPort":"0.1",
+                            "IrPort":"",
+                            "CecPort":"",
+                            "IP":"",
+                            "Username":"",
+                            "Password":"",
+                            "GroupTags":[]
+                        }
+
+                    }
+                ]
             }
         },
         "DSP":{
@@ -684,8 +745,609 @@
                                 "minimum": 1
                             },
                             "GroupTags": { "$ref": "#/$defs/GroupTags"}
+                        },
+                        "defaultSnippets":[
+                            {
+                                "label":"Program Level",
+                                "description":"a fader for program level",
+                                "body":{"Id":0, "Label":"Program", "Location":"", "HasLevel": true, "HasMute": true, "MuteType":0, "LevelControl":"LVM-PGM", "MuteControl":"LVM-PGM", "LevelIndex":1, "MuteIndex":1, "GroupTags":[]}
+                            },
+                            {
+                                "label":"Privacy Mute",
+                                "description":"a fader for privacy mute",
+                                "body":{"Id":0, "Label":"Privacy", "Location":"", "HasLevel": false, "HasMute": true, "MuteType":1, "LevelControl":"MTE-PRV", "MuteControl":"MTE-PRV", "LevelIndex":1, "MuteIndex":1, "GroupTags":[]}
+                            },
+                            {
+                                "label":"Wireless Mic",
+                                "description":"a fader for wireless mic",
+                                "body":{"Id":0, "Label":"Wireless Mic", "Location":"", "HasLevel": true, "HasMute": true, "MuteType":1, "LevelControl":"LVM-WMIC", "MuteControl":"LVM-WMIC", "LevelIndex":1, "MuteIndex":1, "GroupTags":[]}
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "Cameras":{
+            "type":"array",
+            "description":"an array of camera objects",
+            "items":{
+                "type":"object",
+                "description": "a camera object",
+                "properties": {
+                    "Id":{
+                        "type":"integer",
+                        "description": "a number used to sort the array",
+                        "default":0
+                    },
+                    "Label":{
+                        "type":"string",
+                        "description":"text shown on the touch panel as the device's name",
+                        "default":"camera 1"
+                    },
+                    "Location":{
+                        "type":"string",
+                        "description":"text shown on the touch panel. not often used",
+                        "default":""
+                    },
+                    "IP":{
+                        "type":"string",
+                        "description":"the ip address of the device",
+                        "default":""
+                    },
+                    "PanSpeed":{
+                        "type":"integer",
+                        "description":"pan speed of the camera to use. Value is dependent camera make and model.",
+                        "default":10
+                    },
+                    "TiltSpeed":{
+                        "type":"integer",
+                        "description":"pan speed of the camera to use. Value is dependent camera make and model.",
+                        "default":10
+                    },
+                    "ZoomSpeed":{
+                        "type":"integer",
+                        "description":"pan speed of the camera to use. Value is dependent camera make and model.",
+                        "default":10
+                    },
+                    "PreviewType":{
+                        "type":"string",
+                        "description":"the type of stream to use as the camera preview. one of mjpeg, h264 or image.",
+                        "default":"",
+                        "enum": ["", "mjpeg", "h264", "image"]
+                    },
+                    "PreviewSource":{
+                        "type":"string",
+                        "description":"the url of the preview",
+                        "default":""
+                    },
+                    "Username":{
+                        "type":"string",
+                        "description": "username to log into and control the device",
+                        "default":""
+                    },
+                    "Password":{
+                        "type":"string",
+                        "description": "password to log into and control the device",
+                        "default":""
+                    },
+                    "Preset":{
+                        "type":"array",
+                        "description":"an array of strings to show as the presets of a camera",
+                        "default":[
+                            "Preset 1",
+                            "Preset 2",
+                            "Preset 3",
+                            "Preset 4",
+                            "Preset 5",
+                            "Preset 6"
+                        ],
+                        "items":{
+                            "type":"string",
+                            "description": "a preset label",
+                            "default":"Preset"
+                        }
+                    },
+                    "GroupTags": { "$ref": "#/$defs/GroupTags" }
+                },
+                "defaultSnippets":[
+                    {
+                        "label":"Camera",
+                        "description":"a camera",
+                        "body":
+                        {
+                            "Id": 0, "Label": "Camera 1",
+                            "Location":"",
+                            "IP":"",
+                            "PanSpeed": 10,
+                            "TiltSpeed": 10,
+                            "ZoomSpeed": 10,
+                            "PreviewType": "",
+                            "PreviewSource":"",
+                            "Username":"",
+                            "Password":"",
+                            "Preset": [
+                                "Preset 1",
+                                "Preset 2",
+                                "Preset 3",
+                                "Preset 4",
+                                "Preset 5",
+                                "Preset 6"
+                            ],
+                            "GroupTags":[]
                         }
                     }
+                ]
+            }
+        },
+        "Recorders":{
+            "type":"array",
+            "description":"an array of recorder objects",
+            "default":[],
+            "items":{
+                "type":"object",
+                "description": "a recorder object",
+                "default": {
+                    "IP":"",
+                    "Username":"",
+                    "Password":"",
+                    "GroupTags":[]
+                },
+                "properties": {
+                    "IP":{
+                        "type":"string",
+                        "description":"the ip address of the device"
+                    },
+                    "Username":{
+                        "type":"string",
+                        "description": "username to log into and control the device",
+                        "default":""
+                    },
+                    "Password":{
+                        "type":"string",
+                        "description": "password to log into and control the device",
+                        "default":""
+                    },
+                    "GroupTags": { "$ref": "#/$defs/GroupTags"}
+                }
+
+            }
+        },
+        "PresetRoutes":{
+            "type":"object",
+            "description":"an array of preset. a preset can have many routes in it.",
+            "default":[],
+            "properties": {
+                "Id":{
+                    "type":"integer",
+                    "description": "a number used to sort the array"
+                },
+                "Label":{
+                    "type":"string",
+                    "description": "a quick description of the route",
+                    "default":"Startup"
+                },
+                "Routes":{
+                    "type":"array",
+                    "description": "an array of route",
+                    "default":[],
+                    "items":{
+                        "type":"object",
+                        "description": "a route",
+                        "properties": {
+                            "Source":{
+                                "type":"integer",
+                                "description": "a source index to be routed. use -1 for 'clear', or use the index of a 'Blank' source",
+                                "default":-1,
+                                "minimum": -1
+                            },
+                            "Destination":{
+                                "type":"integer",
+                                "description": "a destination index for the source to be routed to. this is ignored if All Destiantions is true",
+                                "default":0,
+                                "minimum": 0
+                            },
+                            "AllDestinations":{
+                                "type":"boolean",
+                                "description": "set to true if source is to be routed to all destinations",
+                                "default":false
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Touchpanels":{
+            "type":"array",
+            "description": "an array of touchpanels",
+            "default":[],
+            "items": {
+                "type":"object",
+                "description": "a touch panel object",
+                "properties": {
+                    "Id":{
+                        "type":"integer",
+                        "description": "a number used to sort the array"
+                    },
+                    "LogoPassword":{
+                        "type":"string",
+                        "description": "if not empty, a password will be prompted when the user presses the logo. usually a 4 digit pin",
+                        "default":""
+                    },
+                    "Startup":{
+                        "type":"object",
+                        "description": "values to be set on the panel at logo press",
+                        "properties": {
+                            "Menu":{
+                                "type":"integer",
+                                "description": "the menu index to be set. use -1 to not set any",
+                                "minimum": -1,
+                                "default":-1
+                            },
+                            "AudioGroup":{
+                                "type":"integer",
+                                "description": "the audio group index to be set. use -1 to not set any",
+                                "minimum": -1,
+                                "default":-1
+                            },
+                            "Source":{
+                                "type":"integer",
+                                "description": "the source index to be set. use -1 to not set any",
+                                "minimum": -1,
+                                "default":-1
+                            },
+                            "DestinationGroup":{
+                                "type":"integer",
+                                "description": "the destination group index to be set. use -1 to not set any",
+                                "minimum": -1,
+                                "default":-1
+                            },
+                            "DisplayGroup":{
+                                "type":"integer",
+                                "description": "the display group index to be set. use -1 to not set any",
+                                "minimum": -1,
+                                "default":-1
+                            },
+                            "TechMenu":{
+                                "type":"integer",
+                                "description": "the tech menu index to be set. use -1 to not set any",
+                                "minimum": -1,
+                                "default":-1
+                            }
+                        }
+                    },
+                    "Menus":{
+                        "type":"array",
+                        "description": "an array of menu items. menus are buttons on the bottom of the touch panel. this must be mapped in the crestron code. talk to your programmer before adding items",
+                        "default":[],
+                        "items": {
+                            "type":"object",
+                            "description": "a menu item",
+                            "default":{},
+                            "defaultSnippets":[
+                                {
+                                    "label":"presentation",
+                                    "description":"a presentation menu button",
+                                    "body":{
+                                        "Id": 0,
+                                        "Visible": true,
+                                        "Label": "Presentation",
+                                        "Icon": "Laptop",
+                                        "Source": -1,
+                                        "Description": "",
+                                        "PresetRoute": -1,
+                                        "SourceGroup": -1,
+                                        "Message": "",
+                                        "Password": ""
+                                    }
+                                }
+                            ],
+                            "properties": {
+                                "Id":{
+                                    "type":"integer",
+                                    "description": "a number used to sort the array"
+                                },
+                                "Visible":{
+                                    "type":"boolean",
+                                    "description": "makes the button visible if true",
+                                    "default":true
+                                },
+                                "Label":{
+                                    "type":"string",
+                                    "description": "text shown on the button",
+                                    "default":"a menu button"
+                                },
+                                "Icon":{
+                                    "type":"string",
+                                    "description": "the icon to show on the button",
+                                    "$ref":"#/$defs/icons"
+                                },
+                                "Source":{
+                                    "type":"integer",
+                                    "description": "the source to be selected, as if it was pressed, when this menu button is pressed. use -1 to indicate none",
+                                    "default":-1,
+                                    "minimum": -1
+                                },
+                                "PresetRoute":{
+                                    "type":"integer",
+                                    "description": "executes a preset route when the menu button is pressed. use -1 to indicate none",
+                                    "default":-1,
+                                    "minimum": -1
+                                },
+                                "SourceGroup":{
+                                    "type":"integer",
+                                    "description": "executes a source group button press when this menu button is pressed. use -1 to indicate none",
+                                    "default": -1,
+                                    "minimum": -1
+                                },
+                                "Message":{
+                                    "type":"string",
+                                    "description": "if mapped to message popup, then this will be text shown on the touch panel",
+                                    "default":""
+                                },
+                                "Password":{
+                                    "type":"string",
+                                    "description": "if not empty, then a password will be prompted from the user before moving on. it must match the password here",
+                                    "default":""
+                                }
+                            }
+                        }
+                    },
+                    "TechMenus":{
+                        "type":"array",
+                        "description": "the menu in the hidden or adv page. usually by pressing the upper left logo on the touch panel. talk to your programmer before adding more items",
+                        "default":[{ "Id": 0, "Visible": false, "Label": "Diagnostics"}],
+                        "items":{
+                            "type":"object",
+                            "description": "a menu item.",
+                            "properties": {
+                                "Id":{
+                                    "type":"integer",
+                                    "description": "a number used to sort the array"
+                                },
+                                "Label":{
+                                    "type":"string",
+                                    "description": "text shown on the button",
+                                    "default":""
+                                },
+                                "Visible":{
+                                    "type":"boolean",
+                                    "description": "makes the button visible if true",
+                                    "default":true
+                                }
+                            }
+                        }
+                    },
+                    "PageStyles":{
+                        "type":"object",
+                        "description": "governs the right volume control and the routing or presentation page is shown",
+                        "properties": {
+                            "Volume":{
+                                "type":"integer",
+                                "description":"determines what to show on the right side for volume control",
+                                "anyOf": [
+                                    {
+                                        "const":0,
+                                        "description": "none"
+                                    },
+                                    {
+                                        "const":1,
+                                        "description": "program volume only"
+                                    },
+                                    {
+                                        "const":2,
+                                        "description": "program volume and mic mute"
+                                    },
+                                    {
+                                        "const":3,
+                                        "description": "program volume, mic mute, and privacy"
+                                    }
+                                ]
+                            },
+                            "Routing":{
+                                "type":"integer",
+                                "description": "determines what to show on the presentation or routing page",
+                                "anyOf": [
+                                    {
+                                        "const":0,
+                                        "description": "none"
+                                    },
+                                    {
+                                        "const":1,
+                                        "description": "sources only"
+                                    },
+                                    {
+                                        "const":2,
+                                        "description": "source and destinations"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "SourcesVisible":{
+                        "type":"array",
+                        "description": "determines if the touch panel should show the source matching its index",
+                        "items":{
+                            "type":"boolean",
+                            "default":true
+                        },
+                        "default":[
+                            true,true,true,true,
+                            true,true,true,true,
+                            true,true,true,true,
+                            true,true,true,true
+                        ]
+                    },
+                    "DestinationsVisible":{
+                        "type":"array",
+                        "description": "determines if the touch panel should show the destination matching its index",
+                        "items":{
+                            "type":"boolean",
+                            "default":true
+                        },
+                        "default":[
+                            true,true,true,true,
+                            true,true,true,true,
+                            true,true,true,true,
+                            true,true,true,true
+                        ]
+                    },
+                    "FadersVisible":{
+                        "type":"array",
+                        "description": "determines if the touch panel should show the fader matching its index",
+                        "items":{
+                            "type":"boolean",
+                            "default":true
+                        },
+                        "default":[
+                            true,true,true,true,
+                            true,true,true,true,
+                            true,true,true,true,
+                            true,true,true,true
+                        ]
+                    },
+                    "CamerasVisible":{
+                        "type":"array",
+                        "description": "determines if the touch panel should show the camera matching its index",
+                        "items":{
+                            "type":"boolean",
+                            "default":true
+                        },
+                        "default":[
+                            true,true,true
+                        ]
+                    },
+                    "VideoConference":{
+                        "type":"object",
+                        "description": "settings regarding vtc",
+                        "items":{
+                            "ShareSourceVisibility":{
+                                "type":"array",
+                                "description":"an array of boolean indicating that the source should be visible as a vtc share source",
+                                "default":[
+                                    true,true,true,true,
+                                    true,true,true,true,
+                                    true,true,true,true,
+                                    true,true,true,true
+                                ],
+                                "items":{
+                                    "type":"boolean",
+                                    "default":true
+                                }
+                            }
+
+                        }
+                    },
+                    "VideoWallLayoutsVisible":{
+                        "type":"array",
+                        "description": "an array of boolean indicating the video wall layout should be visible",
+                        "items":{
+                            "type":"boolean",
+                            "default":true
+                        },
+                        "default":[
+                            true,true,true,true,
+                            true,true,true,true,
+                            true,true,true,true,
+                            true,true,true,true
+                        ]
+                    },
+                    "DisplayGroups":{
+                        "type":"array",
+                        "description": "an array of strings that will show as buttons, acting as filters on GroupTags of displays",
+                        "default":[],
+                        "items":{
+                            "type":"string",
+                            "description": "a tag used in GroupTags of a display"
+                        }
+                    },
+                    "AudioGroups":{
+                        "type":"array",
+                        "description": "an array of strings that will show as buttons, acting as filters on GroupTags of faders",
+                        "default":[],
+                        "items":{
+                            "type":"string",
+                            "description": "a tag used in GroupTags of a fader"
+                        }
+                    },
+                    "SourceGroups":{
+                        "type":"array",
+                        "description": "an array of strings that will show as buttons, acting as filters on GroupTags of sources",
+                        "default":[],
+                        "items":{
+                            "type":"string",
+                            "description": "a tag used in GroupTags of a source"
+                        }
+                    },
+                    "DestinationGroups":{
+                        "type":"array",
+                        "description": "an array of strings that will show as buttons, acting as filters on GroupTags of destinations",
+                        "default":[],
+                        "items":{
+                            "type":"string",
+                            "description": "a tag used in GroupTags of a destination"
+                        }
+                    }
+                },
+                "default":{
+                    "Id": 0,
+                    "LogoPassword":"",
+                    "Startup":{
+                        "Menu":-1,
+                        "AudioGroup":-1,
+                        "Source": -1,
+                        "DestinationGroup":-1,
+                        "DisplayGroup":-1,
+                        "TechMenu":-1
+                    },
+                    "Menus":[
+                        { "Id": 0, "Visible": true, "Label": "Presentation", "Icon": "Laptop", "Source":-1, "Description":"", "PresetRoute":-1, "SourceGroup":-1, "Message":"", "Password":""}
+                    ],
+                    "TechMenus":[
+                        { "Id": 0, "Visible": false, "Label": "Diagnostics"}
+                    ],
+                    "PageStyles":{
+                        "Volume": 1,
+                        "Routing": 1
+                    },
+                    "SourcesVisible":[
+                        true,true,true,true,
+                        true,true,true,true,
+                        true,true,true,true,
+                        true,true,true,true
+                    ],
+                    "DestinationsVisible":[
+                        true,true,true,true,
+                        true,true,true,true,
+                        true,true,true,true,
+                        true,true,true,true
+                    ],
+                    "FadersVisible":[
+                        true,true,true,true,
+                        true,true,true,true,
+                        true,true,true,true,
+                        true,true,true,true
+                    ],
+                    "CamerasVisible":[
+                        true,true,true
+                    ],
+                    "VideoConference":{
+                        "ShareSourceVisibility":[
+                            true,true,true,true,
+                            true,true,true,true,
+                            true,true,true,true,
+                            true,true,true,true
+                        ]
+                    },
+                    "VideoWallLayoutsVisible":[
+                        true,true,true,true,
+                        true,true,true,true,
+                        true,true,true,true,
+                        true,true,true,true
+                    ],
+                    "DisplayGroups":[],
+                    "AudioGroups":[],
+                    "SourceGroups":[],
+                    "DestinationGroups":[]
                 }
             }
         }
@@ -694,9 +1356,247 @@
         "icons":{
             "type":"string",
             "enum":[
+                "Address Book",
+                "Air Media",
+                "Alarm",
+                "Alert",
+                "Android",
+                "Apple",
+                "AppleTV",
+                "Audio",
+                "Audio Note",
+                "Ban",
+                "Battery Charging",
+                "Battery Empty",
+                "Battery Full",
+                "Battery Low",
                 "Blank",
+                "Blinds",
+                "Blinds Closed",
+                "Bluejeans",
+                "Bluetooth",
+                "Blu-ray",
+                "Bolt",
+                "Brightness",
+                "Brightness Max",
+                "Brightness Med",
+                "Broken Route",
+                "Brush",
+                "Calendar",
+                "Camera",
+                "Cart",
+                "CD",
+                "Check",
+                "Checkbox Checked",
+                "Checkbox Off",
+                "Chrome",
+                "ClickShare",
+                "Climate",
+                "Climate Scheduler",
+                "Clock",
+                "Comment",
+                "Comment Check",
+                "Connector",
+                "Connector Plate",
+                "Contrast",
+                "Crestron",
+                "Dashboard",
+                "Delete",
+                "Delete Alt",
+                "Dialer",
+                "Disk",
+                "Displayport",
+                "DND",
+                "Door",
+                "Down",
+                "Down Alt",
+                "Down Right",
+                "Download",
+                "Download Cloud",
+                "Drapes",
+                "Drapes Closed",
+                "Drapes Open",
+                "DVD",
+                "Eject",
+                "Enter",
+                "Eraser",
+                "Eye",
+                "Film",
+                "Fire",
+                "Fireplace",
+                "Folder",
+                "FolderUp",
+                "Fwd",
+                "Game",
+                "Garage",
+                "Gear",
+                "Globe",
+                "Graph",
+                "Graph Alt",
+                "Grid",
+                "Group",
+                "Guide",
+                "Guide List",
+                "HD",
+                "HDMI",
+                "Hdmi Google",
+                "Heart",
+                "Help",
+                "Home",
+                "Hot Tub",
+                "Image",
+                "Info",
+                "iPad",
+                "iPhone-iPod Touch",
+                "iPod",
+                "Keyboard",
+                "Keypad",
                 "Laptop",
-                "TV"
+                "LastFM",
+                "Lectern",
+                "Left",
+                "Left Alt",
+                "Lights",
+                "Lights Off",
+                "List",
+                "Live",
+                "Location",
+                "Location Minus",
+                "Location Plus",
+                "Lync",
+                "MagnifyIn",
+                "Magnifying Glass",
+                "MagnifyingOut",
+                "Media Server",
+                "Mic",
+                "Mic Mute",
+                "Mic Muted",
+                "Microsoft Teams",
+                "minidp",
+                "Minus",
+                "More",
+                "Mouse",
+                "Network Wi-Fi Low",
+                "Network Wi-Fi Max",
+                "Network Wi-Fi Med",
+                "Network Wi-Fi Off",
+                "Next",
+                "Next Page",
+                "Options Off",
+                "Options On",
+                "Outlet",
+                "Padlock Closed",
+                "Padlock Open",
+                "PageDown",
+                "PageUp",
+                "Pandora",
+                "Pandora Alt",
+                "Pause",
+                "PC",
+                "Pen",
+                "Phone",
+                "Phone Down",
+                "Play",
+                "Play All",
+                "Play Alt",
+                "Play Library",
+                "Play List",
+                "Playlist",
+                "Play-Pause",
+                "Plus",
+                "Pool",
+                "Power",
+                "Prev Page",
+                "Previous",
+                "Projector",
+                "Radio Signal",
+                "Rec",
+                "Rec Alt 2",
+                "RecordON",
+                "RecText",
+                "Remote",
+                "Repeat",
+                "Repeat Item",
+                "Repeat Off",
+                "Replay",
+                "Rew",
+                "Rhapsody",
+                "Right",
+                "Right Alt",
+                "Roku",
+                "RSS",
+                "Satellite",
+                "Scene",
+                "Screen",
+                "Settings",
+                "Settings Alt",
+                "Shades",
+                "Shades Alt",
+                "Shades Closed",
+                "Share",
+                "Shield",
+                "Shuffle",
+                "Shuffle Item",
+                "Shuffle Off",
+                "Sirius",
+                "Sirius XM",
+                "Skip Ahead",
+                "Skip Back",
+                "Skype",
+                "Sleep",
+                "Slow",
+                "Snow Flake",
+                "Song Add",
+                "Sonos",
+                "Speaker",
+                "Spinitar",
+                "Spotify",
+                "Star",
+                "Stop",
+                "Stop Source",
+                "Stopwatch",
+                "Stream",
+                "Sun",
+                "System",
+                "Theater",
+                "Thumb Down",
+                "Thumb Up",
+                "Trashcan",
+                "Triangle",
+                "TV",
+                "Ungroup",
+                "Up",
+                "Up Alt",
+                "Upload",
+                "USB",
+                "USB Alt",
+                "usbC",
+                "User",
+                "User Bookmark",
+                "User Check",
+                "User Minus",
+                "Users",
+                "Vga Alt",
+                "Video Input",
+                "Video Output",
+                "Video Screen",
+                "Video Screen Alt",
+                "Volume",
+                "Volume Hi",
+                "Volume Lo",
+                "Volume Mute",
+                "Volume Muted",
+                "Volume_Rounded",
+                "VTC",
+                "Wallplate",
+                "Weather",
+                "Wi-Fi",
+                "Windows",
+                "Wireless Device",
+                "Wrench",
+                "XM",
+                "Zoom",
+                "Zoom Alt"
             ]
         },
         "SerialIrPorts":{

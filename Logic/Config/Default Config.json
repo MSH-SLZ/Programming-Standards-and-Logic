@@ -117,19 +117,21 @@
 
     ],
     "Displays":[
-        {   "Id":0, "Label":"",
-            "Location":"",
-            "Icon":"TV",
+        {
+            "Id": 0,
+            "Label": "Display",
+            "Location": "",
+            "Icon": "TV",
             "IsAProjector": false,
             "HasScreen": false,
-            "DriverPath":"",
-            "SerialPort":"",
-            "IrPort":"",
-            "CecPort":"",
-            "IP":"",
-            "Username":"",
-            "Password":"",
-            "GroupTags":[]
+            "DriverPath": "",
+            "SerialPort": "",
+            "IrPort": "",
+            "CecPort": "",
+            "IP": "",
+            "Username": "",
+            "Password": "",
+            "GroupTags": []
         }
     ],
     "DSP":{
@@ -171,7 +173,7 @@
             "PreviewSource":"",
             "Username":"",
             "Password":"",
-            "Preset":[
+            "Preset": [
                 "Preset 1",
                 "Preset 2",
                 "Preset 3",
