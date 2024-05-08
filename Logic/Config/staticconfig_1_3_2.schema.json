@@ -1350,6 +1350,238 @@
                     "DestinationGroups":[]
                 }
             }
+        },
+        "DMPS":{
+            "type":"object",
+            "description": "sets the dmps audio and presets",
+            "properties": {
+                "DigitalOutputAudioSource":{
+                    "type":"array",
+                    "description": "sets the analog source for the digital outputs HDMI 1, HDMI 2, DM 3 and DM 4",
+                    "items": {
+                        "type":"integer",
+                        "anyOf": [
+                            {
+                                "const":0,
+                                "description": "no route"
+                            },
+                            {
+                                "const":1,
+                                "description": "Digital Mixer 1"
+                            },
+                            {
+                                "const":2,
+                                "description": "Digital Mixer 2"
+                            },
+                            {
+                                "const":3,
+                                "description": "Audio follows Video"
+                            }
+                        ]
+                    }
+                },
+                "MasterRange":{
+                    "description":"min max of all outputs' master volume control",
+                    "$ref": "#/$defs/DMPS-Range"
+                },
+                "SourceRange":{
+                    "description": "min max of all outputs' source volume control",
+                    "$ref": "#/$defs/DMPS-Range"
+                },
+                "MicMasterRange":{
+                    "description": "min max of all outputs' mic master volume control",
+                    "$ref": "#/$defs/DMPS-Range"
+                },
+                "Mic1Range":{
+                    "description": "min max of all outputs' mic 1 volume control",
+                    "$ref": "#/$defs/DMPS-Range"
+                },
+                "Mic2Range":{
+                    "description": "min max of all outputs' mic 2 volume control",
+                    "$ref": "#/$defs/DMPS-Range"
+                },
+                "Mic3Range":{
+                    "description": "min max of all outputs' mic 3 volume control",
+                    "$ref": "#/$defs/DMPS-Range"
+                },
+                "Mic4Range":{
+                    "description": "min max of all outputs' mic 4 volume control",
+                    "$ref": "#/$defs/DMPS-Range"
+                },
+                "Mic5Range":{
+                    "description": "min max of all outputs' mic 5 volume control",
+                    "$ref": "#/$defs/DMPS-Range"
+                },
+                "Mic6Range":{
+                    "description": "min max of all outputs' mic 6 volume control",
+                    "$ref": "#/$defs/DMPS-Range"
+                },
+                "FaderMapping":{
+                    "type":"array",
+                    "description": "an array indicating that faders in defined in the DSP should be mapped to DMPS level controls",
+                    "items":{
+                        "$ref": "#/$defs/DMPS-FaderAddresses"
+                    }
+                },
+                "Presets":{
+                    "type":"object",
+                    "description": "recalls startup and shutdown values at their respective instances",
+                    "properties": {
+                        "Startup":{
+                            "description": "at system on, set the all outputs to a mix points to a specific mute and level",
+                            "$ref": "#/$defs/DMPS-AudioPreset"
+                        },
+                        "Shutdown":{
+                            "description": "at system off, set the all outputs to a mix points to a specific mute and level",
+                            "$ref": "#/$defs/DMPS-AudioPreset"
+                        }
+
+                    }
+                }
+            },
+            "default":{
+                "Note":[
+                    "DigitalOutputAudioSource:",
+                    "0 = no route",
+                    "1 = Digital Mixer 1",
+                    "2 = Digital Mixer 2",
+                    "3 = Audio Follows Video",
+                    "__Range",
+                    "-500 to 100 (-80db to +10db)"
+                ],
+                "DigitalOutputAudioSource":[3,0,0,0],
+                "MasterRange": {"Min":-500, "Max":0 },
+                "SourceRange": {"Min":-500, "Max":0 },
+                "MicMasterRange": {"Min":-500, "Max":0 },
+                "Mic1Range": {"Min":-500, "Max":0 },
+                "Mic2Range": {"Min":-500, "Max":0 },
+                "Mic3Range": {"Min":-500, "Max":0 },
+                "Mic4Range": {"Min":-500, "Max":0 },
+                "Mic5Range": {"Min":-500, "Max":0 },
+                "Mic6Range": {"Min":-500, "Max":0 },
+                "FaderMapping":[
+                    0,-1,-1,-1,
+                    -1,-1,-1,-1,
+                    -1,-1,-1,-1,
+                    -1,-1,-1,-1
+                ],
+                "Presets":{
+                    "Startup":{
+                        "Program":{
+                            "Master":    { "Level": 0, "Mute":0 },
+                            "MicMaster": { "Level": -500, "Mute":0 },
+                            "Source":    { "Level": -150, "Mute":0 },
+                            "Mic1":      { "Level": -500, "Mute":0 },
+                            "Mic2":      { "Level": -500, "Mute":0 },
+                            "Mic3":      { "Level": -500, "Mute":0 },
+                            "Mic4":      { "Level": -500, "Mute":0 },
+                            "Mic5":      { "Level": -500, "Mute":0 },
+                            "Mic6":      { "Level": -500, "Mute":0 }
+                        },
+                        "Aux1":{
+                            "Master":    { "Level": -500, "Mute":0 },
+                            "MicMaster": { "Level": -500, "Mute":0 },
+                            "Source":    { "Level": -500, "Mute":0 },
+                            "Mic1":      { "Level": -500, "Mute":0 },
+                            "Mic2":      { "Level": -500, "Mute":0 },
+                            "Mic3":      { "Level": -500, "Mute":0 },
+                            "Mic4":      { "Level": -500, "Mute":0 },
+                            "Mic5":      { "Level": -500, "Mute":0 },
+                            "Mic6":      { "Level": -500, "Mute":0 }
+                        },
+                        "Aux2":{
+                            "Master":    { "Level": -500, "Mute":0 },
+                            "MicMaster": { "Level": -500, "Mute":0 },
+                            "Source":    { "Level": -500, "Mute":0 },
+                            "Mic1":      { "Level": -500, "Mute":0 },
+                            "Mic2":      { "Level": -500, "Mute":0 },
+                            "Mic3":      { "Level": -500, "Mute":0 },
+                            "Mic4":      { "Level": -500, "Mute":0 },
+                            "Mic5":      { "Level": -500, "Mute":0 },
+                            "Mic6":      { "Level": -500, "Mute":0 }
+                        },
+                        "DigitalMix1":{
+                            "Master":    { "Level": -500, "Mute":0 },
+                            "MicMaster": { "Level": -500, "Mute":0 },
+                            "Source":    { "Level": -500, "Mute":0 },
+                            "Mic1":      { "Level": -500, "Mute":0 },
+                            "Mic2":      { "Level": -500, "Mute":0 },
+                            "Mic3":      { "Level": -500, "Mute":0 },
+                            "Mic4":      { "Level": -500, "Mute":0 },
+                            "Mic5":      { "Level": -500, "Mute":0 },
+                            "Mic6":      { "Level": -500, "Mute":0 }
+                        },
+                        "DigitalMix2":{
+                            "Master":    { "Level": -500, "Mute":0 },
+                            "MicMaster": { "Level": -500, "Mute":0 },
+                            "Source":    { "Level": -500, "Mute":0 },
+                            "Mic1":      { "Level": -500, "Mute":0 },
+                            "Mic2":      { "Level": -500, "Mute":0 },
+                            "Mic3":      { "Level": -500, "Mute":0 },
+                            "Mic4":      { "Level": -500, "Mute":0 },
+                            "Mic5":      { "Level": -500, "Mute":0 },
+                            "Mic6":      { "Level": -500, "Mute":0 }
+                        }
+                    },
+                    "Shutdown":{
+                        "Program":{
+                            "Master":    { "Level": -500, "Mute":1 },
+                            "MicMaster": { "Level": -500, "Mute":1 },
+                            "Source":    { "Level": -500, "Mute":1 },
+                            "Mic1":      { "Level": -500, "Mute":1 },
+                            "Mic2":      { "Level": -500, "Mute":1 },
+                            "Mic3":      { "Level": -500, "Mute":1 },
+                            "Mic4":      { "Level": -500, "Mute":1 },
+                            "Mic5":      { "Level": -500, "Mute":1 },
+                            "Mic6":      { "Level": -500, "Mute":1 }
+                        },
+                        "Aux1":{
+                            "Master":    { "Level": -500, "Mute":1 },
+                            "MicMaster": { "Level": -500, "Mute":1 },
+                            "Source":    { "Level": -500, "Mute":1 },
+                            "Mic1":      { "Level": -500, "Mute":1 },
+                            "Mic2":      { "Level": -500, "Mute":1 },
+                            "Mic3":      { "Level": -500, "Mute":1 },
+                            "Mic4":      { "Level": -500, "Mute":1 },
+                            "Mic5":      { "Level": -500, "Mute":1 },
+                            "Mic6":      { "Level": -500, "Mute":1 }
+                        },
+                        "Aux2":{
+                            "Master":    { "Level": -500, "Mute":1 },
+                            "MicMaster": { "Level": -500, "Mute":1 },
+                            "Source":    { "Level": -500, "Mute":1 },
+                            "Mic1":      { "Level": -500, "Mute":1 },
+                            "Mic2":      { "Level": -500, "Mute":1 },
+                            "Mic3":      { "Level": -500, "Mute":1 },
+                            "Mic4":      { "Level": -500, "Mute":1 },
+                            "Mic5":      { "Level": -500, "Mute":1 },
+                            "Mic6":      { "Level": -500, "Mute":1 }
+                        },
+                        "DigitalMix1":{
+                            "Master":    { "Level": -500, "Mute":1 },
+                            "MicMaster": { "Level": -500, "Mute":1 },
+                            "Source":    { "Level": -500, "Mute":1 },
+                            "Mic1":      { "Level": -500, "Mute":1 },
+                            "Mic2":      { "Level": -500, "Mute":1 },
+                            "Mic3":      { "Level": -500, "Mute":1 },
+                            "Mic4":      { "Level": -500, "Mute":1 },
+                            "Mic5":      { "Level": -500, "Mute":1 },
+                            "Mic6":      { "Level": -500, "Mute":1 }
+                        },
+                        "DigitalMix2":{
+                            "Master":    { "Level": -500, "Mute":1 },
+                            "MicMaster": { "Level": -500, "Mute":1 },
+                            "Source":    { "Level": -500, "Mute":1 },
+                            "Mic1":      { "Level": -500, "Mute":1 },
+                            "Mic2":      { "Level": -500, "Mute":1 },
+                            "Mic3":      { "Level": -500, "Mute":1 },
+                            "Mic4":      { "Level": -500, "Mute":1 },
+                            "Mic5":      { "Level": -500, "Mute":1 },
+                            "Mic6":      { "Level": -500, "Mute":1 }
+                        }
+                    }
+                }
+            }
         }
     },
     "$defs":{
@@ -1700,6 +1932,307 @@
                 "type":"string",
                 "default":""
             }
+        },
+        "DMPS-AudioLevelMin":{
+            "description":"minimum db value in tenths",
+            "type":"integer",
+            "default":-500,
+            "minimum": -800,
+            "maximum": 100
+        },
+        "DMPS-AudioLevelMax":{
+            "description":"maximum db value in tenths",
+            "type":"integer",
+            "default":0,
+            "minimum": -800,
+            "maximum": 100
+        },
+        "DMPS-Range":{
+            "type":"object",
+            "default": {"Min":-500, "Max":0 },
+            "properties": {
+                "Min":{ "$ref": "#/$defs/DMPS-AudioLevelMin" },
+                "Max":{ "$ref": "#/$defs/DMPS-AudioLevelMax" }
+                }
+        },
+        "DMPS-FaderAddresses":{
+            "type":"integer",
+            "default":-1,
+            "anyOf":[
+                {
+                    "const":-1,
+                    "description":"none"
+                },
+                {
+                    "const":0,
+                    "description":"Program Master"
+                },
+                {
+                    "const":1,
+                    "description":"Program Source"
+                },
+                {
+                    "const":2,
+                    "description":"Program Mic Master"
+                },
+                {
+                    "const":3,
+                    "description":"Program Mic 1"
+                },
+                {
+                    "const":4,
+                    "description":"Program Mic 2"
+                },
+                {
+                    "const":5,
+                    "description":"Program Mic 3"
+                },
+                {
+                    "const":6,
+                    "description":"Program Mic 4"
+                },
+                {
+                    "const":7,
+                    "description":"Program Mic 5"
+                },
+                {
+                    "const":8,
+                    "description":"Program Mic 6"
+                },
+
+                {
+                    "const":16,
+                    "description":"Aux 1 Master"
+                },
+                {
+                    "const":17,
+                    "description":"Aux 1 Source"
+                },
+                {
+                    "const":18,
+                    "description":"Aux 1 Mic Master"
+                },
+                {
+                    "const":19,
+                    "description":"Aux 1 Mic 1"
+                },
+                {
+                    "const":20,
+                    "description":"Aux 1 Mic 2"
+                },
+                {
+                    "const":21,
+                    "description":"Aux 1 Mic 3"
+                },
+                {
+                    "const":22,
+                    "description":"Aux 1 Mic 4"
+                },
+                {
+                    "const":23,
+                    "description":"Aux 1 Mic 5"
+                },
+                {
+                    "const":24,
+                    "description":"Aux 1 Mic 6"
+                },
+
+                {
+                    "const":32,
+                    "description":"Aux 2 Master"
+                },
+                {
+                    "const":33,
+                    "description":"Aux 2 Source"
+                },
+                {
+                    "const":34,
+                    "description":"Aux 2 Mic Master"
+                },
+                {
+                    "const":35,
+                    "description":"Aux 2 Mic 1"
+                },
+                {
+                    "const":36,
+                    "description":"Aux 2 Mic 2"
+                },
+                {
+                    "const":37,
+                    "description":"Aux 2 Mic 3"
+                },
+                {
+                    "const":38,
+                    "description":"Aux 2 Mic 4"
+                },
+                {
+                    "const":39,
+                    "description":"Aux 2 Mic 5"
+                },
+                {
+                    "const":40,
+                    "description":"Aux 2 Mic 6"
+                },
+
+                {
+                    "const":48,
+                    "description":"Dig Mix 1 Master"
+                },
+                {
+                    "const":49,
+                    "description":"Dig Mix 1 Source"
+                },
+                {
+                    "const":50,
+                    "description":"Dig Mix 1 Mic Master"
+                },
+                {
+                    "const":51,
+                    "description":"Dig Mix 1 Mic 1"
+                },
+                {
+                    "const":52,
+                    "description":"Dig Mix 1 Mic 2"
+                },
+                {
+                    "const":53,
+                    "description":"Dig Mix 1 Mic 3"
+                },
+                {
+                    "const":54,
+                    "description":"Dig Mix 1 Mic 4"
+                },
+                {
+                    "const":55,
+                    "description":"Dig Mix 1 Mic 5"
+                },
+                {
+                    "const":56,
+                    "description":"Dig Mix 1 Mic 6"
+                },
+
+                {
+                    "const":64,
+                    "description":"Dig Mix 2 Master"
+                },
+                {
+                    "const":65,
+                    "description":"Dig Mix 2 Source"
+                },
+                {
+                    "const":66,
+                    "description":"Dig Mix 2 Mic Master"
+                },
+                {
+                    "const":67,
+                    "description":"Dig Mix 2 Mic 1"
+                },
+                {
+                    "const":68,
+                    "description":"Dig Mix 2 Mic 2"
+                },
+                {
+                    "const":69,
+                    "description":"Dig Mix 2 Mic 3"
+                },
+                {
+                    "const":70,
+                    "description":"Dig Mix 2 Mic 4"
+                },
+                {
+                    "const":71,
+                    "description":"Dig Mix 2 Mic 5"
+                },
+                {
+                    "const":72,
+                    "description":"Dig Mix 2 Mic"
+                }
+            ]
+        },
+        "DMPS-AudioPreset":{
+            "type":"object",
+            "properties":{
+                "Program":{
+                    "$ref":"#/$defs/DMPS-AudioPresetOutput"
+                },
+                "Aux1":{
+                    "$ref":"#/$defs/DMPS-AudioPresetOutput"
+                },
+                "Aux2":{
+                    "$ref":"#/$defs/DMPS-AudioPresetOutput"
+                },
+                "DigitalMix1": {
+                    "$ref":"#/$defs/DMPS-AudioPresetOutput"
+                },
+                "DigitalMix2": {
+                    "$ref":"#/$defs/DMPS-AudioPresetOutput"
+                }
+
+            }
+        },
+        "DMPS-AudioPresetOutput":{
+            "type":"object",
+            "description":"sets the output's inputs mix to a specific level and mute",
+            "properties":{
+                "Master":{
+                    "$ref":"#/$defs/DMPS-AudioPresetChannel"
+                },
+                "MicMaster":{
+                    "$ref":"#/$defs/DMPS-AudioPresetChannel"
+                },
+                "Source":{
+                    "$ref":"#/$defs/DMPS-AudioPresetChannel"
+                },
+                "Mic1":{
+                    "$ref":"#/$defs/DMPS-AudioPresetChannel"
+                },
+                "Mic2":{
+                    "$ref":"#/$defs/DMPS-AudioPresetChannel"
+                },
+                "Mic3":{
+                    "$ref":"#/$defs/DMPS-AudioPresetChannel"
+                },
+                "Mic4":{
+                    "$ref":"#/$defs/DMPS-AudioPresetChannel"
+                },
+                "Mic5":{
+                    "$ref":"#/$defs/DMPS-AudioPresetChannel"
+                },
+                "Mic6":{
+                    "$ref":"#/$defs/DMPS-AudioPresetChannel"
+                }
+            }
+        },
+        "DMPS-AudioPresetChannel":{
+            "type":"object",
+            "description":"an output's control of an audio input",
+            "properties":{
+                "Level":{
+                    "type":"integer",
+                    "description":"the level value in tenths of a db from -800 to 100",
+                    "default":0,
+                    "minimum":-800,
+                    "maximum":100
+                },
+                "Mute":{
+                    "type":"integer",
+                    "description":"the mute of the channel, 0 = mute off",
+                    "default":0,
+                    "minimum":0,
+                    "maximum":1,
+                    "anyOf":[
+                        {
+                            "const":0,
+                            "description":"mute off"
+                        },
+                        {
+                            "const":1,
+                            "description":"mute on"
+                        }
+                    ]
+                }
+            }
+
         }
     }
 }
