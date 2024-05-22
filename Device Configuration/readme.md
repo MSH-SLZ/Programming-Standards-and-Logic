@@ -14,4 +14,7 @@ notes regarding controlling Cisco telepresence endpoints.
 notes regarding controlling Denon devices.
 
 ## [Luxul] (/Device%20Configuration/Luxul/readme.md)
-notes
+notes regarding configuring Luxul Switches
+
+## [Samsung] (/Device%20Configuration/Samsung/readme.md)
+notes regarding configuring Samsung Displays

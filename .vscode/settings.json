@@ -7,6 +7,9 @@
             "url": "./staticconfig_1_3_2.schema.json"
         }
     ],
+    "[markdown]":{
+        "files.trimTrailingWhitespace": false
+    },
     "cSpell.words": [
         "appletv",
         "cameranopreview",

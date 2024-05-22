@@ -1587,6 +1587,7 @@
     "$defs":{
         "icons":{
             "type":"string",
+            "markdownDescription":"see full list of images [here](https://github.com/dportugal-solutionz/Programming-Standards-and-Logic/tree/main/Logic/Config/Icons)",
             "enum":[
                 "Address Book",
                 "Air Media",
