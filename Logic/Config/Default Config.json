@@ -20,7 +20,7 @@
                 "VtcVolumeLevel":70,
                 "DspPreset":1
             },
-            "RoomAudio":{
+            "Audio":{
                 "ProgramVolume": { "DMAddress": -1, "DSPFader": -1},
                 "MicVolume":     { "DMAddress": -1, "DSPFader": -1},
                 "AtcVolume":     { "DMAddress": -1, "DSPFader": -1},
