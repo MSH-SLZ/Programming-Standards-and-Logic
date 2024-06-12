@@ -40,7 +40,7 @@
                     "Shutdown":{
                         "$ref": "#/$defs/RoomStartupShutdown"
                     },
-                    "RoomAudio":{
+                    "Audio":{
                         "type":"object",
                         "description": "maps specific volume controls to DM or DSP faders",
                         "properties": {
