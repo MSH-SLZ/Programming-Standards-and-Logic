@@ -1,2 +1,10 @@
 # Icons
 ![Set 1](spinneo_3_2-1.png)
+![Set 2](spinneo_3_2-2.png)
+![Set 3](spinneo_3_2-3.png)
+![Set 4](spinneo_3_2-4.png)
+![Set 5](spinneo_3_2-5.png)
+![Set 6](spinneo_3_2-6.png)
+![Set 7](spinneo_3_2-7.png)
+![Set 8](spinneo_3_2-8.png)
+![Set 9](spinneo_3_2-9.png)
