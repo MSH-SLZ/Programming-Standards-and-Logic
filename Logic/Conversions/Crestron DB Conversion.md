@@ -1,3 +1,7 @@
+This is a table of db to decimal or percentage conversion table in a linear progression.
+Most Crestron devices fall within this db range but not all devices use a linear progression.
+
+
 | db     | decimal    | pct     |
 | -----  | ---------- | ------- |
 |20      | 65535      |  100    |
