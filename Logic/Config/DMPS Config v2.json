@@ -1,0 +1,213 @@
+{
+    "DMPS": {
+        "Note": [
+            "DigitalOutputAudioSource:",
+            "0 = no route",
+            "1 = Digital Mixer 1",
+            "2 = Digital Mixer 2",
+            "3 = Audio Follows Video",
+            "__Range",
+            "-500 to 100 (-80db to +10db)"
+        ],
+        "DigitalOutputAudioSource": [ 3, 3, 0, 0 ],
+        "MasterRange": { "Min": -500, "Max": 0 },
+        "SourceRange": {"Min": -500, "Max": 0 },
+        "MicMasterRange": { "Min": -500, "Max": 0},
+        "Mic1Range": { "Min": -500, "Max": 0},
+        "Mic2Range": { "Min": -500, "Max": 0},
+        "Mic3Range": { "Min": -500, "Max": 0},
+        "Mic4Range": { "Min": -500, "Max": 0},
+        "Mic5Range": { "Min": -500, "Max": 0},
+        "Mic6Range": { "Min": -500, "Max": 0},
+        "_FaderMappingValues":["see https://github.com/dportugal-solutionz/Programming-Standards-and-Logic/blob/main/Logic/readme.md#config-audio-dm-address "],
+        "FaderMapping": [
+            -1,-1,-1,-1,
+            -1,-1,-1,-1,
+            -1,-1,-1,-1,
+            -1,-1,-1,-1,
+            -1,-1,-1,-1,
+            -1,-1,-1,-1,
+            -1,-1,-1,-1,
+            -1,-1,-1,-1
+        ],
+        "Presets": {
+            "_notes":[
+                "Analog Input Gain -100(-10db) to 100(10db)",
+                "HDMI Input Gain -100(-10db) to 100(10db)",
+                "DM Input Gain -100(-10db) to 100(10db)",
+                "Mic Input Gain 0 (0dB) to 600 (60dB) in 30 (3dB) increments."
+            ],
+            "Startup": {
+                "AnalogInputGain": {
+                    "In1": { "Gain": 0 },
+                    "In2": { "Gain": 0 },
+                    "In3": { "Gain": 0 },
+                    "In4": { "Gain": 0 },
+                    "In5": { "Gain": 0 }
+                },
+                "HDMIInputGain": {
+                    "In1": { "Gain": 0 },
+                    "In2": { "Gain": 0 },
+                    "In3": { "Gain": 0 },
+                    "In4": { "Gain": 0 },
+                    "In5": { "Gain": 0 },
+                    "In6": { "Gain": 0 }
+                },
+                "DMInputGain": {
+                    "DM7": { "Gain": 0 },
+                    "DM8": { "Gain": 0 }
+                },
+                "MicInputs":{
+                    "Mic1":{ "Gain": 0, "Mute": 0, "PhantomPower": 0 },
+                    "Mic2":{ "Gain": 0, "Mute": 0, "PhantomPower": 0 },
+                    "Mic3":{ "Gain": 0, "Mute": 0, "PhantomPower": 0 },
+                    "Mic4":{ "Gain": 0, "Mute": 0, "PhantomPower": 0 },
+                    "Mic5":{ "Gain": 0, "Mute": 0, "PhantomPower": 0 },
+                    "Mic6":{ "Gain": 0, "Mute": 0, "PhantomPower": 0 }
+                },
+                "Program": {
+                    "Master":    { "Level": 0,    "Mute": 0 },
+                    "MicMaster": { "Level": 0,    "Mute": 0 },
+                    "Source":    { "Level": -150, "Mute": 0 },
+                    "Mic1":      { "Level": 0,    "Mute": 0 },
+                    "Mic2":      { "Level": 0,    "Mute": 0 },
+                    "Mic3":      { "Level": 0,    "Mute": 0 },
+                    "Mic4":      { "Level": 0,    "Mute": 0 },
+                    "Mic5":      { "Level": 0,    "Mute": 0 },
+                    "Mic6":      { "Level": 0,    "Mute": 0 }
+                },
+                "Aux1": {
+                    "Master":    { "Level": 0,    "Mute": 0 },
+                    "MicMaster": { "Level": 0,    "Mute": 0 },
+                    "Source":    { "Level": 0,    "Mute": 0 },
+                    "Mic1":      { "Level": 0,    "Mute": 0 },
+                    "Mic2":      { "Level": 0,    "Mute": 0 },
+                    "Mic3":      { "Level": 0,    "Mute": 0 },
+                    "Mic4":      { "Level": 0,    "Mute": 0 },
+                    "Mic5":      { "Level": 0,    "Mute": 0 },
+                    "Mic6":      { "Level": 0,    "Mute": 0 },
+                    "Codec1":    { "Level": 0,    "Mute": 0 }
+                },
+                "Aux2": {
+                    "Master":    { "Level": 0,    "Mute": 0 },
+                    "MicMaster": { "Level": 0,    "Mute": 0 },
+                    "Source":    { "Level": 0,    "Mute": 0 },
+                    "Mic1":      { "Level": 0,    "Mute": 0 },
+                    "Mic2":      { "Level": 0,    "Mute": 0 },
+                    "Mic3":      { "Level": 0,    "Mute": 0 },
+                    "Mic4":      { "Level": 0,    "Mute": 0 },
+                    "Mic5":      { "Level": 0,    "Mute": 0 },
+                    "Mic6":      { "Level": 0,    "Mute": 0 },
+                    "Codec2":    { "Level": 0,    "Mute": 0 }
+                },
+                "DigitalMix1": {
+                    "Master":    { "Level": 0,    "Mute": 0 },
+                    "MicMaster": { "Level": 0,    "Mute": 0 },
+                    "Source":    { "Level": 0,    "Mute": 0 },
+                    "Mic1":      { "Level": 0,    "Mute": 0 },
+                    "Mic2":      { "Level": 0,    "Mute": 0 },
+                    "Mic3":      { "Level": 0,    "Mute": 0 },
+                    "Mic4":      { "Level": 0,    "Mute": 0 },
+                    "Mic5":      { "Level": 0,    "Mute": 0 },
+                    "Mic6":      { "Level": 0,    "Mute": 0 }
+                },
+                "DigitalMix2": {
+                    "Master":    { "Level": 0,    "Mute": 0 },
+                    "MicMaster": { "Level": 0,    "Mute": 0 },
+                    "Source":    { "Level": 0,    "Mute": 0 },
+                    "Mic1":      { "Level": 0,    "Mute": 0 },
+                    "Mic2":      { "Level": 0,    "Mute": 0 },
+                    "Mic3":      { "Level": 0,    "Mute": 0 },
+                    "Mic4":      { "Level": 0,    "Mute": 0 },
+                    "Mic5":      { "Level": 0,    "Mute": 0 },
+                    "Mic6":      { "Level": 0,    "Mute": 0 }
+                }
+            },
+            "Shutdown": {
+                "AnalogInputGain": {
+                    "In1": { "Gain": 0, "Mute": 0 },
+                    "In2": { "Gain": 0, "Mute": 0 },
+                    "In3": { "Gain": 0, "Mute": 0 },
+                    "In4": { "Gain": 0, "Mute": 0 },
+                    "In5": { "Gain": 0, "Mute": 0 }
+                },
+                "HDMIInputGain": {
+                    "In1": { "Gain": 0, "Mute": 0 },
+                    "In2": { "Gain": 0, "Mute": 0 },
+                    "In3": { "Gain": 0, "Mute": 0 },
+                    "In4": { "Gain": 0, "Mute": 0 },
+                    "In5": { "Gain": 0, "Mute": 0 }
+                },
+                "DMInputGain": {
+                    "DM7": { "Gain": 0, "Mute": 0 },
+                    "DM8": { "Gain": 0, "Mute": 0 }
+                },
+                "MicInputs":{
+                    "Mic1":{ "Gain": 0, "Mute": 0, "PhantomPower": 0 },
+                    "Mic2":{ "Gain": 0, "Mute": 0, "PhantomPower": 0 },
+                    "Mic3":{ "Gain": 0, "Mute": 0, "PhantomPower": 0 },
+                    "Mic4":{ "Gain": 0, "Mute": 0, "PhantomPower": 0 },
+                    "Mic5":{ "Gain": 0, "Mute": 0, "PhantomPower": 0 },
+                    "Mic6":{ "Gain": 0, "Mute": 0, "PhantomPower": 0 }
+                },
+                "Program": {
+                    "Master":    { "Level": 0,    "Mute": 1 },
+                    "MicMaster": { "Level": 0,    "Mute": 1 },
+                    "Source":    { "Level": -500, "Mute": 1 },
+                    "Mic1":      { "Level": 0,    "Mute": 1 },
+                    "Mic2":      { "Level": 0,    "Mute": 1 },
+                    "Mic3":      { "Level": 0,    "Mute": 1 },
+                    "Mic4":      { "Level": 0,    "Mute": 1 },
+                    "Mic5":      { "Level": 0,    "Mute": 1 },
+                    "Mic6":      { "Level": 0,    "Mute": 1 }
+                },
+                "Aux1": {
+                    "Master":    { "Level": 0,    "Mute": 1 },
+                    "MicMaster": { "Level": 0,    "Mute": 1 },
+                    "Source":    { "Level": 0,    "Mute": 1 },
+                    "Mic1":      { "Level": 0,    "Mute": 1 },
+                    "Mic2":      { "Level": 0,    "Mute": 1 },
+                    "Mic3":      { "Level": 0,    "Mute": 1 },
+                    "Mic4":      { "Level": 0,    "Mute": 1 },
+                    "Mic5":      { "Level": 0,    "Mute": 1 },
+                    "Mic6":      { "Level": 0,    "Mute": 1 },
+                    "Codec1":    { "Level": 0,    "Mute": 1 }
+                },
+                "Aux2": {
+                    "Master":    { "Level": 0,    "Mute": 1 },
+                    "MicMaster": { "Level": 0,    "Mute": 1 },
+                    "Source":    { "Level": 0,    "Mute": 1 },
+                    "Mic1":      { "Level": 0,    "Mute": 1 },
+                    "Mic2":      { "Level": 0,    "Mute": 1 },
+                    "Mic3":      { "Level": 0,    "Mute": 1 },
+                    "Mic4":      { "Level": 0,    "Mute": 1 },
+                    "Mic5":      { "Level": 0,    "Mute": 1 },
+                    "Mic6":      { "Level": 0,    "Mute": 1 },
+                    "Codec2":    { "Level": 0,    "Mute": 1 }
+                },
+                "DigitalMix1": {
+                    "Master":    { "Level": 0,    "Mute": 1 },
+                    "MicMaster": { "Level": 0,    "Mute": 1 },
+                    "Source":    { "Level": 0,    "Mute": 1 },
+                    "Mic1":      { "Level": 0,    "Mute": 1 },
+                    "Mic2":      { "Level": 0,    "Mute": 1 },
+                    "Mic3":      { "Level": 0,    "Mute": 1 },
+                    "Mic4":      { "Level": 0,    "Mute": 1 },
+                    "Mic5":      { "Level": 0,    "Mute": 1 },
+                    "Mic6":      { "Level": 0,    "Mute": 1 }
+                },
+                "DigitalMix2": {
+                    "Master":    { "Level": 0,    "Mute": 1 },
+                    "MicMaster": { "Level": 0,    "Mute": 1 },
+                    "Source":    { "Level": 0,    "Mute": 1 },
+                    "Mic1":      { "Level": 0,    "Mute": 1 },
+                    "Mic2":      { "Level": 0,    "Mute": 1 },
+                    "Mic3":      { "Level": 0,    "Mute": 1 },
+                    "Mic4":      { "Level": 0,    "Mute": 1 },
+                    "Mic5":      { "Level": 0,    "Mute": 1 },
+                    "Mic6":      { "Level": 0,    "Mute": 1 }
+                }
+            }
+        }
+    }
+}
