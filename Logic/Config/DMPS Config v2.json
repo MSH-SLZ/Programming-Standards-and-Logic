@@ -7,36 +7,34 @@
             "2 = Digital Mixer 2",
             "3 = Audio Follows Video",
             "__Range",
-            "-500 to 100 (-80db to +10db)"
+            "Analog Input Gain -100(-10db) to 100(10db)",
+            "HDMI Input Gain -100(-10db) to 100(10db)",
+            "DM Input Gain -100(-10db) to 100(10db)",
+            "Mic Input Gain 0 (0dB) to 600 (60dB) in 30 (3dB) increments."
         ],
         "DigitalOutputAudioSource": [ 3, 3, 0, 0 ],
-        "MasterRange": { "Min": -500, "Max": 0 },
-        "SourceRange": {"Min": -500, "Max": 0 },
-        "MicMasterRange": { "Min": -500, "Max": 0},
-        "Mic1Range": { "Min": -500, "Max": 0},
-        "Mic2Range": { "Min": -500, "Max": 0},
-        "Mic3Range": { "Min": -500, "Max": 0},
-        "Mic4Range": { "Min": -500, "Max": 0},
-        "Mic5Range": { "Min": -500, "Max": 0},
-        "Mic6Range": { "Min": -500, "Max": 0},
+        "MasterRange"     : { "Min": -500, "Max": 0 },
+        "SourceRange"     : {"Min" : -500, "Max": 0 },
+        "MicMasterRange"  : { "Min": -500, "Max": 0},
+        "Mic1Range"       : { "Min": -500, "Max": 0},
+        "Mic2Range"       : { "Min": -500, "Max": 0},
+        "Mic3Range"       : { "Min": -500, "Max": 0},
+        "Mic4Range"       : { "Min": -500, "Max": 0},
+        "Mic5Range"       : { "Min": -500, "Max": 0},
+        "Mic6Range"       : { "Min": -500, "Max": 0},
+        "Codec1Range"     : { "Min": -500, "Max": 0},
+        "Codec2Range"     : { "Min": -500, "Max": 0},
+        "AnalogInputRange": { "Min": -100, "Max": 100},
+        "HDMIInputRange"  : { "Min": -100, "Max": 100},
+        "MicGainRange"    : { "Min": 0, "Max": 300},
         "_FaderMappingValues":["see https://github.com/dportugal-solutionz/Programming-Standards-and-Logic/blob/main/Logic/readme.md#config-audio-dm-address "],
         "FaderMapping": [
-            -1,-1,-1,-1,
-            -1,-1,-1,-1,
-            -1,-1,-1,-1,
-            -1,-1,-1,-1,
-            -1,-1,-1,-1,
-            -1,-1,-1,-1,
-            -1,-1,-1,-1,
-            -1,-1,-1,-1
+            -1,-1,-1,-1,-1,-1,-1,-1,
+            -1,-1,-1,-1,-1,-1,-1,-1,
+            -1,-1,-1,-1,-1,-1,-1,-1,
+            -1,-1,-1,-1,-1,-1,-1,-1
         ],
         "Presets": {
-            "_notes":[
-                "Analog Input Gain -100(-10db) to 100(10db)",
-                "HDMI Input Gain -100(-10db) to 100(10db)",
-                "DM Input Gain -100(-10db) to 100(10db)",
-                "Mic Input Gain 0 (0dB) to 600 (60dB) in 30 (3dB) increments."
-            ],
             "Startup": {
                 "AnalogInputGain": {
                     "In1": { "Gain": 0 },

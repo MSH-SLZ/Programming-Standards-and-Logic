@@ -36,6 +36,8 @@ Default Configuration json file
 - 6 Program Mic 4
 - 7 Program Mic 5
 - 8 Program Mic 6
+- 9 Program Codec 1 (config v2)
+- 10 Program Codec 2 (config v2)
 ### Aux 1 Output
 - 16 Aux 1 Master
 - 17 Aux 1 Source
@@ -46,6 +48,7 @@ Default Configuration json file
 - 22 Aux 1 Mic 4
 - 23 Aux 1 Mic 5
 - 24 Aux 1 Mic 6
+- 25 Aux 1 Codec 1 (config v2)
 ### Aux 2 Output
 - 32 Aux 2 Master
 - 33 Aux 2 Source
@@ -56,6 +59,7 @@ Default Configuration json file
 - 38 Aux 2 Mic 4
 - 39 Aux 2 Mic 5
 - 40 Aux 2 Mic 6
+- 41 Aux 2 Codec 2 (config v2)
 ### Digital Mixer 1
 - 48 Dig Mix 1 Master
 - 49 Dig Mix 1 Source
@@ -77,5 +81,28 @@ Default Configuration json file
 - 71 Dig Mix 2 Mic 5
 - 72 Dig Mix 2 Mic
 ### For Direct Control of Displays
+- not implemented in all programs may differ for each program
 - 80 Display 1
 - 81 Display 2
+### Inputs
+- only available in config v2
+- 1001 Analog Input 1
+- 1002 Analog Input 2
+- 1003 Analog Input 3
+- 1004 Analog Input 4
+- 1005 Analog Input 5
+- 1011 HDMI Input 1
+- 1012 HDMI Input 2
+- 1013 HDMI Input 3
+- 1014 HDMI Input 4
+- 1015 HDMI Input 5
+- 1016 HDMI Input 6
+- 1017 DM Input 7
+- 1018 DM Input 8
+- 1021 Mic Input 1
+- 1022 Mic Input 2
+- 1023 Mic Input 3
+- 1024 Mic Input 4
+- 1025 Mic Input 5
+- 1026 Mic Input 6
+
