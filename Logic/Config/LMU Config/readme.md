@@ -55,50 +55,50 @@ Some settings you'll typically find in *most* of our config files:
 ## Room 
 ```json
 {
-    "Room": {
-        "Site": "LMU",
-        "RoomName": "WHH 118",
-        "HelpNumber": "x87777 option 1",
-        "UseExternalDsp": true,
-        "DisplayAutoOn": true,
-        "Startup":{
-            "PresetRoute":0,
-            "DspPreset":0,
-            "ProgramVolumeLevel":70,
-            "MicVolumeLevel":70,
-            "VtcVolumeLevel":70
-        },
-        "Shutdown":{
-            "PresetRoute":1,
-            "DspPreset":1,
-            "ProgramVolumeLevel":70,
-            "MicVolumeLevel":70,
-            "VtcVolumeLevel":70
-        },
-        "Audio":
-        {
-            "ProgramVolume":{
-                "DMAddress":1,
-                "DSPFader":0
-            },
-            "MicVolume":{
-                "DMAddress":-1,
-                "DSPFader":-1
-            },
-            "AtcVolume":{
-                "DMAddress":-1,
-                "DSPFader":-1
-            },
-            "VtcVolume":{
-                "DMAddress":-1,
-                "DSPFader":-1
-            },
-            "PrivacyMute":{
-                "DMAddress":-1,
-                "DSPFader":-1
-            }
-        }
-    }
+    "Room": {
+        "Site": "LMU",
+        "RoomName": "WHH 118",
+        "HelpNumber": "x87777 option 1",
+        "UseExternalDsp": true,
+        "DisplayAutoOn": true,
+        "Startup":{
+            "PresetRoute":0,
+            "DspPreset":0,
+            "ProgramVolumeLevel":70,
+            "MicVolumeLevel":70,
+            "VtcVolumeLevel":70
+        },
+        "Shutdown":{
+            "PresetRoute":1,
+            "DspPreset":1,
+            "ProgramVolumeLevel":70,
+            "MicVolumeLevel":70,
+            "VtcVolumeLevel":70
+        },
+        "Audio":
+        {
+            "ProgramVolume":{
+                "DMAddress":1,
+                "DSPFader":0
+            },
+            "MicVolume":{
+                "DMAddress":-1,
+                "DSPFader":-1
+            },
+            "AtcVolume":{
+                "DMAddress":-1,
+                "DSPFader":-1
+            },
+            "VtcVolume":{
+                "DMAddress":-1,
+                "DSPFader":-1
+            },
+            "PrivacyMute":{
+                "DMAddress":-1,
+                "DSPFader":-1
+            }
+        }
+    }
 }
 ```
 
