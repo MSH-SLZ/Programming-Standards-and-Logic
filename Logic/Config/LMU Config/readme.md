@@ -104,55 +104,75 @@ Some settings you'll typically find in *most* of our config files:
 
 ### Site
 Data type: String
+
 Defines site name, as of today I don't believe this is displayed on the UI anywhere, leave alone.
 
 ### RoomName
 Data type: String
+
 Defines room name, this is shown on the top left within the header.
 
 ### HelpNumber
 Data type: String
+
 Defines help number shown when pressing the help button.
 
 ### UseExternalDsp
 Data type: Boolean
+
 If true will attempt to connect to IP defined within [DSP]
 
 ### DisplayAutoOn
 Data type: Boolean
+
 If true, will pulse the displays to turn on when 'Start' is pressed from the logo, this might not be fully defined within programming because displays grow/shrink. Don't rely on this.
 
 ### Startup / Shutdown
 #### Preset Route
 Data type: Integer
+
 Valid range: 0-31
+
 Will recall an index of [PresetRoutes](#presetroutes)
 
 #### DspPreset
 Data type: Integer
+
 Valid range: 0-31
+
 Sends defined value on startup / shutdown, I don't know if this fully works.
 
 #### xVolumeLevel
 Data type: Integer
+
 Valid range: 0-100
+
 Will send the value as a **PERCENTAGE** to said volume fader on startup / shutdown.
 
 ### Audio
 #### xVolume
 Program Volume is the right column on the UI shown 99% of the time.
+
 Mic Volume isn't really used, not sure where it is on the UI.
+
 ATC Volume isn't really used, probably within ATC subpages.
+
 VTC Volume isn't really used, probably within VTC subpages.
+
 Privacy is the privacy button underneath Program Volume.
+
 ##### DMAddress
 Data type: Integer
+
 Valid range: -1-31
+
 Sets xVolume to a control point on the DMPS/DM. See [FaderMapping](#fadermapping)
 
 ##### DSPFader
 Data type: Integer
+
 Valid range: -1-31
+
 Sets xVolume to a fader on the DSP. See [DSP.Faders[]]()
 
 
@@ -307,21 +327,30 @@ Sets xVolume to a fader on the DSP. See [DSP.Faders[]]()
 
 ### DigitalOutputAudioSource
 Data type: Integer[]
+
 Valid range: 0-3
+
+```text
 0 = No Route
 1 = Digital Mixer 1
 2 = Digital Mixer 2
 3 = Audio Follows Video
+```
+
 Sets the DMPS Audio Outputs on program boot.
 
 ### xRange
 Data type: Integers
+
 Valid range -800-100
+
 Sets the volume range if controlling one of these volume points.
 
 ### FaderMapping
 Data type: Integer[]
+
 Valid range: -1-72
+
 ```text
 * 0 Program Master
 * 1 Program Source
@@ -378,7 +407,9 @@ The audio list is determined by the position in the array 0-15
 
 ### Presets
 Data type: Integer
+
 Valid range: -800-100
+
 Sets the respective volume, to the level provided, and the mute provided to the DMPS.
 
 ## Matrices[]
@@ -459,26 +490,32 @@ Sets the respective volume, to the level provided, and the mute provided to the 
 ### Object
 #### ID
 Data type: Integer
+
 Friendly way to view order, don't think this affects static config.
 
 #### Label
 Data type: String
+
 A way to describe the matrix. If using AVRouter, that name needs to match within that module.
 
 #### IP/Username/Password
 Data type: String
+
 Not utilized in programming currently
 
 #### Inputs
 Data type: Integer
+
 How many inputs are on the Matrix
 
 #### Outputs
 Data type: Integer
+
 How many outputs are on the Matrix
 
 #### InputLabels / OutputLabels
 Data type: String[]
+
 A friendly way to reference what is where, also to assign names TO the DMPS or DM
 
 ## Sources[]
@@ -564,30 +601,42 @@ A friendly way to reference what is where, also to assign names TO the DMPS or D
 ### Object
 #### ID
 Data type: Integer
+
 Valid range: 0-31
+
 Friendly way to order the source list, useful when looking at [RoutingRules](#routingrules) or [PresetRoutes](#presetroutes)
 #### Label
 Data type: String
+
 Friendly label, displayed on UI in source list.
 #### Icon
 Data type: String
+
 Valid values:
+
 ```text
 tbd, see VTPro in the interim
 ```
+
 Changes source icon in source list.
 #### Input
 Data type: Integer
+
 Valid range: 0 to Defined by the Matrix it's assigned to
+
 What input this source exists on the Matrix, this **must** be in the bounds of the [Matrices[].Inputs](#matrices) it's assigned to. If 0 the source will clear.
 #### Matrix
 Data type: Integer
+
 Valid range: 0 to max matrix count
+
 Assigns source to [Matrices](#matrices)
 
 #### ShowControls
 Data type: String
+
 Valid values:
+
 ```text
 "" (Blank)
 none
@@ -600,24 +649,33 @@ cameranopreview
 cabletv
 doccam
 ```
+
 Ties source control to source button.
+
 In no destination routing mode: selecting source will open control.
+
 In multiple destination routing mode: control button will show below source.
 #### Message
 Data type: String
+
 Defines the message text to show if [ShowControls](#showcontrols) is set to `message`
 #### IrPort
 Data type: String
+
 Deprecated and done in programming, ignore.
 #### DriverPath
 Data type: String
+
 Deprecated and done in programming, ignore.
 #### DisableDestinations
 Data type: Integer[]
+
 Valid range: 0 to max destination count
+
 When source is selected, it will disable the destinations within it. Useful for preventing VTC from routing to itself, among other things, or if you have multiple matrices and there's no valid path to certain destinations on the list.
 #### DeviceIndex
 Data type: Integer
+
 Probably deprecated and done in programming, ignore.
 
 ## Destinations[]
@@ -663,28 +721,38 @@ Probably deprecated and done in programming, ignore.
 ### Object
 #### ID
 Data type: Integer
+
 Valid range: 0-31
+
 Friendly way to order the source list, useful when looking at [RoutingRules] or [PresetRoutes]
 #### Label
 Data type: String
+
 Friendly label, displayed on UI in destination list.
 #### #### Icon
 Data type: String
+
 Valid values:
+
 ```text
 tbd, see VTPro in the interim
 ```
 Changes source icon in source list.
 #### ShowVideoMute
 Data type: Boolean
+
 Shows a individual video mute button under the destination button, **Not used, keep false.**
 #### Output
 Data type: Integer
+
 Valid range: Defined by the Matrix it's assigned to
+
 What output this source exists on the Matrix, this **must** be in the bounds of the [Matrices[].Outputs](#matrices) it's assigned to.
 #### Matrix
 Data type: Integer
+
 Valid range: 0 to max matrix count
+
 Assigns destination to [Matrices](#matrices)
 
 ## RoutingRules[]
@@ -703,17 +771,22 @@ Assigns destination to [Matrices](#matrices)
 }
 ```
 Data type: String[]
+
 Assume all are case sensitive. This isn't a list of all the rules, I don't have them all off hand would need to peek in code or look for examples, this is primarily what you'll ever use. 
 
 **Uses Zero-based numbering (Numbers begin at 0)\***
+
 \*Not for inputs/outputs
 ### Tie Source.x Matrix.y.In.z
 Ties a source on the [[#Sources[]]] list to a [[#Matrices[]]]
+
 Example: `Tie Source.3 Matrix.1.In.11` 
+
 This ties Source 4 on the Source[] list (Bluray) to Matrix 2 on the Matricies[] list (DM-Audio) to Input 11 (HDMI 6).
 
 ### Tie Matrix.x.Out.y Matrix.z.In.a
 Ties a [Matrices](#matrices) *OUTPUT* to a [Matrices](#matrices) *INPUT*
+
 Example:
 ```text
 (For the sake of the example, lets assume:
@@ -724,12 +797,14 @@ Example:
 "Tie Matrix.2.Out.1 Matrix.0.In.7",
 "Tie Matrix.2.Out.1 Matrix.1.In.12",
 ```
+
 The above would tie Matrix 3 (DM-TX) output 1 (DM Output) to Matrix 1 (DM-Video) on input 7 (DM) and on Matrix 2 (DM-Audio) on input 12 (DM) (Because the DMPS offsets audio)
 
 When routing a source that exists on `Matrix.2` the AVRouter will now know that it needs to route input 7 on `Matrix.0` and/or input 12 on `Matrix.12`
 
 ### Destination.x Follow.y
 Ties a destination to follow another destination
+
 Example:
 ```json
 {
@@ -797,20 +872,25 @@ In the above `Destination.2 Follow.0` is setting Destination 3 (Program Audio) t
 ### Object
 #### ID
 Data type: String
+
 Friendly number descriptor.
 #### Label
 Data type: String
+
 Friendly name/descriptor.
 #### Routes[]
 ##### Object
 ###### Source
 Data type: Integer
+
 Index of a source in the [Sources](#sources) list.
 ###### Destination
 Data type: Integer
+
 Index of a destination in the [Destinations](#destinations) list.
 ###### AllDestinations
 Data type: Boolean
+
 If true will route to all destinations in [Destinations](#destinations) try not to have a true one of these if multiple routes needs to happen for obvious reasons.
 
 ## Displays[]
@@ -845,12 +925,15 @@ If true will route to all destinations in [Destinations](#destinations) try not 
 ### Object
 #### ID
 Data type: String
+
 Friendly number descriptor.
 #### Label
 Data type: String
+
 Friendly name descriptor. This gets shown on the UI within Display/Projector controls.
 #### Icon
 Data type: String
+
 Changes the icon on the destination button.
 #### IsAProjector
 Data type: Boolean
