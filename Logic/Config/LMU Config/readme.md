@@ -854,23 +854,29 @@ Data type: String
 Changes the icon on the destination button.
 #### IsAProjector
 Data type: Boolean
+
 Allows the below to be visible. (HasScreen, LampHoursVisible, VideoMuteVisible)
 #### HasScreen
 Data type: Boolean
+
 If true, shows up/down relays for screen control in display/projector control.
 #### DriverPath
 Data type: String
+
 Deprecated, used to use Crestron Certified Drivers but compile times were massive, just hard code displays/projectors.
 #### LampHoursVisible
 Data type: Boolean
+
 If true, shows lamp hours in projector control.
 #### VideoMuteVisible
 Data type: Boolean
+
 if true, shows video mute button in display/projector control. LMU typically wants this enabled whenever possible, even on displays, they also typically dislike if we mute on the Video Output leading into the display/projector, so please try to mute on the device itself.
 
 ## DSP
 ### IP
 Data type: String
+
 If [UseExternalDsp](#useexternaldsp) is enabled will use the IP when connecting to the DSP.
 
 ### Faders[]
@@ -878,35 +884,49 @@ These are visible on the Audio Controls popups
 #### Object
 ##### ID
 Data type: Integer
+
 Friendly number descriptor. This doesn't really matter, the order is more important.
 ##### Label
 Data type: String
+
 Friendly name descriptor. This gets shown on the UI within audio controls.
 ##### HasLevel
 Data type: Boolean
+
 If true, shows the level slider.
 ##### HasMute
 Data type: Boolean
+
 If true, shows the mute button.
 ##### MuteType
 Data type: Integer
+
 Valid values:
+
 0 = Speaker Mute Icon
+
 1 = Microphone Mute Icon
+
 Changes the icon of the mute button.
 ##### Level Control
 Data type: String
+
 Instance tag or Named Control of the level goes here.
 ##### Mute Control
 Data type: String
+
 Instance tag or Named Control of the mute goes here.
 ##### LevelIndex
 Data type: Integer
+
 Defines what index is the level is on in the block given.
+
 For example if you had a level block with 5 inputs, and you needed to control volume slider 3 of that block, you would use index 3.
 ##### MuteIndex
 Data type: Integer
+
 Defines what index is the mute is on in the block given.
+
 For example if you had a mute block with 5 inputs, and you needed to control mute 3 of that block, you would use index 3.
 
 ### Presets
@@ -966,21 +986,27 @@ I don't know exactly what these do, pretty sure it's deprecated, have it comment
 ### Object
 #### ID
 Data type: Integer
+
 Friendly number descriptor. Like most other objects, order is more important.
 #### Label
 Data type: String
+
 Friendly name descriptor. Will be shown on UI if more than one camera is selectable.
 #### Location
 Data type: String
+
 Not sure what this is, I've never used it.
 #### IP
 Data type: String
+
 If filled will attempt to connect to IP given.
 #### xSpeed
 Data type: Integer
+
 Speeds of each respective motor function, range depends on the camera.
 #### PreviewType
 Data type: String
+
 Valid values:
 ```text
 image
@@ -990,15 +1016,19 @@ h264
 Will show one of the previews while hiding the rest on the camera page, typically we've used mjpeg in the past it's worked fine.
 #### PreviewSource
 Data type: String
+
 Path of the stream, this should be from the camera itself.
 #### Username
 Data type: String
+
 Username of the camera, not always needed.
 #### Password
 Data type: String
+
 Password of the camera, not always needed.
 #### Preset
 Data type: String[]
+
 Labels of the presets in order, will be shown on UI.
 #### GroupTags
 Not sure what this is, I've never used it.
@@ -1113,12 +1143,14 @@ Not sure what this is, I've never used it.
 ### Object
 #### ID
 Data type: Integer
+
 Friendly number descriptor.
 #### Startup
 I think this is deprecated, if not it 'selects' the indexes given on startup.
 #### PageStyles
 ##### Volume
 Data type: Integer
+
 Deprecated, in other config files it would change the right bar pairing
 ```text
 1 = program only
@@ -1134,7 +1166,9 @@ Data type: Integer
 
 #### xVisibility
 Data type: Boolean[]
+
 If true will be shown on the respective list of [Sources](#sources) or [Destinations](#destinations) or [Faders](#faders) or [Cameras](#cameras)
+
 Remember it's using Zero-Based numbering, so `DestinationVisibility[3]` is set to false, so that will hide 'USB Capture' which is 4th on the [Destinations](#destinations) list.
 
 #### Menus[]
@@ -1142,13 +1176,17 @@ This is the menu list on the bottom left of the UI
 ##### Object
 ###### ID
 Data type: Integer
+
 Friendly number descriptor.
 ###### Label
 Data type: String
+
 Friendly name descriptor. No labels on these buttons on the UI, so does nothing.
 ###### Icon
 Data type: String
+
 Changes the icon of the button.
 ###### Visible
 Data type: Boolean
+
 Changes the visibility of the button.
