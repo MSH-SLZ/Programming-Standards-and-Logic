@@ -126,7 +126,7 @@ If true, will pulse the displays to turn on when 'Start' is pressed from the log
 #### Preset Route
 Data type: Integer
 Valid range: 0-31
-Will recall an index of [[#PresetRoutes[]]]
+Will recall an index of [PresetRoutes](#presetroutes)
 
 #### DspPreset
 Data type: Integer
@@ -148,7 +148,7 @@ Privacy is the privacy button underneath Program Volume.
 ##### DMAddress
 Data type: Integer
 Valid range: -1-31
-Sets xVolume to a control point on the DMPS/DM. See [[#FaderMapping]]
+Sets xVolume to a control point on the DMPS/DM. See [FaderMapping](#fadermapping)
 
 ##### DSPFader
 Data type: Integer
@@ -188,116 +188,116 @@ Sets xVolume to a fader on the DSP. See [DSP.Faders[]]()
         "Presets":{
             "Startup":{
                 "Program":{
-                    "Master":    { "Level": 0, "Mute":0 },
+                    "Master":    { "Level": 0, "Mute":0 },
                     "MicMaster": { "Level": -500, "Mute":0 },
-                    "Source":    { "Level": 0, "Mute":0 },
-                    "Mic1":      { "Level": -500, "Mute":0 },
-                    "Mic2":      { "Level": -500, "Mute":0 },
-                    "Mic3":      { "Level": -500, "Mute":0 },
-                    "Mic4":      { "Level": -500, "Mute":0 },
-                    "Mic5":      { "Level": -500, "Mute":0 },
-                    "Mic6":      { "Level": -500, "Mute":0 }
+                    "Source":    { "Level": 0, "Mute":0 },
+                    "Mic1":      { "Level": -500, "Mute":0 },
+                    "Mic2":      { "Level": -500, "Mute":0 },
+                    "Mic3":      { "Level": -500, "Mute":0 },
+                    "Mic4":      { "Level": -500, "Mute":0 },
+                    "Mic5":      { "Level": -500, "Mute":0 },
+                    "Mic6":      { "Level": -500, "Mute":0 }
                 },
                 "Aux1":{
-                    "Master":    { "Level": -500, "Mute":0 },
+                    "Master":    { "Level": -500, "Mute":0 },
                     "MicMaster": { "Level": -500, "Mute":0 },
-                    "Source":    { "Level": -500, "Mute":0 },
-                    "Mic1":      { "Level": -500, "Mute":0 },
-                    "Mic2":      { "Level": -500, "Mute":0 },
-                    "Mic3":      { "Level": -500, "Mute":0 },
-                    "Mic4":      { "Level": -500, "Mute":0 },
-                    "Mic5":      { "Level": -500, "Mute":0 },
-                    "Mic6":      { "Level": -500, "Mute":0 }
+                    "Source":    { "Level": -500, "Mute":0 },
+                    "Mic1":      { "Level": -500, "Mute":0 },
+                    "Mic2":      { "Level": -500, "Mute":0 },
+                    "Mic3":      { "Level": -500, "Mute":0 },
+                    "Mic4":      { "Level": -500, "Mute":0 },
+                    "Mic5":      { "Level": -500, "Mute":0 },
+                    "Mic6":      { "Level": -500, "Mute":0 }
                 },
                 "Aux2":{
-                    "Master":    { "Level": -500, "Mute":0 },
+                    "Master":    { "Level": -500, "Mute":0 },
                     "MicMaster": { "Level": -500, "Mute":0 },
-                    "Source":    { "Level": -500, "Mute":0 },
-                    "Mic1":      { "Level": -500, "Mute":0 },
-                    "Mic2":      { "Level": -500, "Mute":0 },
-                    "Mic3":      { "Level": -500, "Mute":0 },
-                    "Mic4":      { "Level": -500, "Mute":0 },
-                    "Mic5":      { "Level": -500, "Mute":0 },
-                    "Mic6":      { "Level": -500, "Mute":0 }
+                    "Source":    { "Level": -500, "Mute":0 },
+                    "Mic1":      { "Level": -500, "Mute":0 },
+                    "Mic2":      { "Level": -500, "Mute":0 },
+                    "Mic3":      { "Level": -500, "Mute":0 },
+                    "Mic4":      { "Level": -500, "Mute":0 },
+                    "Mic5":      { "Level": -500, "Mute":0 },
+                    "Mic6":      { "Level": -500, "Mute":0 }
                 },
                 "DigitalMix1":{
-                    "Master":    { "Level": -500, "Mute":0 },
+                    "Master":    { "Level": -500, "Mute":0 },
                     "MicMaster": { "Level": -500, "Mute":0 },
-                    "Source":    { "Level": -500, "Mute":0 },
-                    "Mic1":      { "Level": -500, "Mute":0 },
-                    "Mic2":      { "Level": -500, "Mute":0 },
-                    "Mic3":      { "Level": -500, "Mute":0 },
-                    "Mic4":      { "Level": -500, "Mute":0 },
-                    "Mic5":      { "Level": -500, "Mute":0 },
-                    "Mic6":      { "Level": -500, "Mute":0 }
+                    "Source":    { "Level": -500, "Mute":0 },
+                    "Mic1":      { "Level": -500, "Mute":0 },
+                    "Mic2":      { "Level": -500, "Mute":0 },
+                    "Mic3":      { "Level": -500, "Mute":0 },
+                    "Mic4":      { "Level": -500, "Mute":0 },
+                    "Mic5":      { "Level": -500, "Mute":0 },
+                    "Mic6":      { "Level": -500, "Mute":0 }
                 },
                 "DigitalMix2":{
-                    "Master":    { "Level": -500, "Mute":0 },
+                    "Master":    { "Level": -500, "Mute":0 },
                     "MicMaster": { "Level": -500, "Mute":0 },
-                    "Source":    { "Level": -500, "Mute":0 },
-                    "Mic1":      { "Level": -500, "Mute":0 },
-                    "Mic2":      { "Level": -500, "Mute":0 },
-                    "Mic3":      { "Level": -500, "Mute":0 },
-                    "Mic4":      { "Level": -500, "Mute":0 },
-                    "Mic5":      { "Level": -500, "Mute":0 },
-                    "Mic6":      { "Level": -500, "Mute":0 }
+                    "Source":    { "Level": -500, "Mute":0 },
+                    "Mic1":      { "Level": -500, "Mute":0 },
+                    "Mic2":      { "Level": -500, "Mute":0 },
+                    "Mic3":      { "Level": -500, "Mute":0 },
+                    "Mic4":      { "Level": -500, "Mute":0 },
+                    "Mic5":      { "Level": -500, "Mute":0 },
+                    "Mic6":      { "Level": -500, "Mute":0 }
                 }
             },
             "Shutdown":{
                 "Program":{
-                    "Master":    { "Level": -500, "Mute":1 },
+                    "Master":    { "Level": -500, "Mute":1 },
                     "MicMaster": { "Level": -500, "Mute":1 },
-                    "Source":    { "Level": -500, "Mute":1 },
-                    "Mic1":      { "Level": -500, "Mute":1 },
-                    "Mic2":      { "Level": -500, "Mute":1 },
-                    "Mic3":      { "Level": -500, "Mute":1 },
-                    "Mic4":      { "Level": -500, "Mute":1 },
-                    "Mic5":      { "Level": -500, "Mute":1 },
-                    "Mic6":      { "Level": -500, "Mute":1 }
+                    "Source":    { "Level": -500, "Mute":1 },
+                    "Mic1":      { "Level": -500, "Mute":1 },
+                    "Mic2":      { "Level": -500, "Mute":1 },
+                    "Mic3":      { "Level": -500, "Mute":1 },
+                    "Mic4":      { "Level": -500, "Mute":1 },
+                    "Mic5":      { "Level": -500, "Mute":1 },
+                    "Mic6":      { "Level": -500, "Mute":1 }
                 },
                 "Aux1":{
-                    "Master":    { "Level": -500, "Mute":1 },
+                    "Master":    { "Level": -500, "Mute":1 },
                     "MicMaster": { "Level": -500, "Mute":1 },
-                    "Source":    { "Level": -500, "Mute":1 },
-                    "Mic1":      { "Level": -500, "Mute":1 },
-                    "Mic2":      { "Level": -500, "Mute":1 },
-                    "Mic3":      { "Level": -500, "Mute":1 },
-                    "Mic4":      { "Level": -500, "Mute":1 },
-                    "Mic5":      { "Level": -500, "Mute":1 },
-                    "Mic6":      { "Level": -500, "Mute":1 }
+                    "Source":    { "Level": -500, "Mute":1 },
+                    "Mic1":      { "Level": -500, "Mute":1 },
+                    "Mic2":      { "Level": -500, "Mute":1 },
+                    "Mic3":      { "Level": -500, "Mute":1 },
+                    "Mic4":      { "Level": -500, "Mute":1 },
+                    "Mic5":      { "Level": -500, "Mute":1 },
+                    "Mic6":      { "Level": -500, "Mute":1 }
                 },
                 "Aux2":{
-                    "Master":    { "Level": -500, "Mute":1 },
+                    "Master":    { "Level": -500, "Mute":1 },
                     "MicMaster": { "Level": -500, "Mute":1 },
-                    "Source":    { "Level": -500, "Mute":1 },
-                    "Mic1":      { "Level": -500, "Mute":1 },
-                    "Mic2":      { "Level": -500, "Mute":1 },
-                    "Mic3":      { "Level": -500, "Mute":1 },
-                    "Mic4":      { "Level": -500, "Mute":1 },
-                    "Mic5":      { "Level": -500, "Mute":1 },
-                    "Mic6":      { "Level": -500, "Mute":1 }
+                    "Source":    { "Level": -500, "Mute":1 },
+                    "Mic1":      { "Level": -500, "Mute":1 },
+                    "Mic2":      { "Level": -500, "Mute":1 },
+                    "Mic3":      { "Level": -500, "Mute":1 },
+                    "Mic4":      { "Level": -500, "Mute":1 },
+                    "Mic5":      { "Level": -500, "Mute":1 },
+                    "Mic6":      { "Level": -500, "Mute":1 }
                 },
                 "DigitalMix1":{
-                    "Master":    { "Level": -500, "Mute":1 },
+                    "Master":    { "Level": -500, "Mute":1 },
                     "MicMaster": { "Level": -500, "Mute":1 },
-                    "Source":    { "Level": -500, "Mute":1 },
-                    "Mic1":      { "Level": -500, "Mute":1 },
-                    "Mic2":      { "Level": -500, "Mute":1 },
-                    "Mic3":      { "Level": -500, "Mute":1 },
-                    "Mic4":      { "Level": -500, "Mute":1 },
-                    "Mic5":      { "Level": -500, "Mute":1 },
-                    "Mic6":      { "Level": -500, "Mute":1 }
+                    "Source":    { "Level": -500, "Mute":1 },
+                    "Mic1":      { "Level": -500, "Mute":1 },
+                    "Mic2":      { "Level": -500, "Mute":1 },
+                    "Mic3":      { "Level": -500, "Mute":1 },
+                    "Mic4":      { "Level": -500, "Mute":1 },
+                    "Mic5":      { "Level": -500, "Mute":1 },
+                    "Mic6":      { "Level": -500, "Mute":1 }
                 },
                 "DigitalMix2":{
-                    "Master":    { "Level": -500, "Mute":1 },
+                    "Master":    { "Level": -500, "Mute":1 },
                     "MicMaster": { "Level": -500, "Mute":1 },
-                    "Source":    { "Level": -500, "Mute":1 },
-                    "Mic1":      { "Level": -500, "Mute":1 },
-                    "Mic2":      { "Level": -500, "Mute":1 },
-                    "Mic3":      { "Level": -500, "Mute":1 },
-                    "Mic4":      { "Level": -500, "Mute":1 },
-                    "Mic5":      { "Level": -500, "Mute":1 },
-                    "Mic6":      { "Level": -500, "Mute":1 }
+                    "Source":    { "Level": -500, "Mute":1 },
+                    "Mic1":      { "Level": -500, "Mute":1 },
+                    "Mic2":      { "Level": -500, "Mute":1 },
+                    "Mic3":      { "Level": -500, "Mute":1 },
+                    "Mic4":      { "Level": -500, "Mute":1 },
+                    "Mic5":      { "Level": -500, "Mute":1 },
+                    "Mic6":      { "Level": -500, "Mute":1 }
                 }
             }
         }
@@ -385,7 +385,7 @@ Sets the respective volume, to the level provided, and the mute provided to the 
 ```json
 {
     "Matrices":[
-        {   
+        {
             "Id": 0, 
             "Label": "DM-Video",
             "IP":"",
@@ -402,9 +402,9 @@ Sets the respective volume, to the level provided, and the mute provided to the 
                 "1 HDMI","2 HDMI","3 DM","4 DM"
             ]
         },
-        {   
+        {
             "Id": 1, 
-            "Label": "DM-Audio",            
+            "Label": "DM-Audio",
             "IP":"",
             "Username":"",
             "Password":"",
@@ -436,7 +436,7 @@ Sets the respective volume, to the level provided, and the mute provided to the 
                 "Digital Mixer 2"
             ]
         },
-        {   
+        {
             "Id": 2, 
             "Label": "DM-TX-7",
             "IP":"",
@@ -464,7 +464,6 @@ Friendly way to view order, don't think this affects static config.
 #### Label
 Data type: String
 A way to describe the matrix. If using AVRouter, that name needs to match within that module.
-![[Pasted image 20250407133720.png]]
 
 #### IP/Username/Password
 Data type: String
@@ -566,7 +565,7 @@ A friendly way to reference what is where, also to assign names TO the DMPS or D
 #### ID
 Data type: Integer
 Valid range: 0-31
-Friendly way to order the source list, useful when looking at [[#RoutingRules[]]] or [PresetRoutes]
+Friendly way to order the source list, useful when looking at [RoutingRules](#routingrules) or [PresetRoutes](#presetroutes)
 #### Label
 Data type: String
 Friendly label, displayed on UI in source list.
@@ -580,11 +579,11 @@ Changes source icon in source list.
 #### Input
 Data type: Integer
 Valid range: 0 to Defined by the Matrix it's assigned to
-What input this source exists on the Matrix, this **must** be in the bounds of the [[#Matrices[]]].Inputs it's assigned to. If 0 the source will clear.
+What input this source exists on the Matrix, this **must** be in the bounds of the [Matrices[].Inputs](#matrices) it's assigned to. If 0 the source will clear.
 #### Matrix
 Data type: Integer
 Valid range: 0 to max matrix count
-Assigns source to [[#Matrices[]]]
+Assigns source to [Matrices](#matrices)
 
 #### ShowControls
 Data type: String
@@ -606,7 +605,7 @@ In no destination routing mode: selecting source will open control.
 In multiple destination routing mode: control button will show below source.
 #### Message
 Data type: String
-Defines the message text to show if [[#ShowControls]] is set to `message`
+Defines the message text to show if [ShowControls](#showcontrols) is set to `message`
 #### IrPort
 Data type: String
 Deprecated and done in programming, ignore.
@@ -682,11 +681,11 @@ Shows a individual video mute button under the destination button, **Not used, k
 #### Output
 Data type: Integer
 Valid range: Defined by the Matrix it's assigned to
-What output this source exists on the Matrix, this **must** be in the bounds of the [[#Matrices[]]].Outputs it's assigned to.
+What output this source exists on the Matrix, this **must** be in the bounds of the [Matrices[].Outputs](#matrices) it's assigned to.
 #### Matrix
 Data type: Integer
 Valid range: 0 to max matrix count
-Assigns destination to [[#Matrices[]]]
+Assigns destination to [Matrices](#matrices)
 
 ## RoutingRules[]
 ```json
@@ -714,7 +713,7 @@ Example: `Tie Source.3 Matrix.1.In.11`
 This ties Source 4 on the Source[] list (Bluray) to Matrix 2 on the Matricies[] list (DM-Audio) to Input 11 (HDMI 6).
 
 ### Tie Matrix.x.Out.y Matrix.z.In.a
-Ties a [[#Matrices[]]]] *OUTPUT* to a [[#Matrices[]]] *INPUT*
+Ties a [Matrices](#matrices) *OUTPUT* to a [Matrices](#matrices) *INPUT*
 Example:
 ```text
 (For the sake of the example, lets assume:
@@ -806,19 +805,19 @@ Friendly name/descriptor.
 ##### Object
 ###### Source
 Data type: Integer
-Index of a source in the [[#Sources[]]] list.
+Index of a source in the [Sources](#sources) list.
 ###### Destination
 Data type: Integer
-Index of a destination in the [[#Destinations[]]] list.
+Index of a destination in the [Destinations](#destinations) list.
 ###### AllDestinations
 Data type: Boolean
-If true will route to all destinations in [[#Destinations[]]] try not to have a true one of these if multiple routes needs to happen for obvious reasons.
+If true will route to all destinations in [Destinations](#destinations) try not to have a true one of these if multiple routes needs to happen for obvious reasons.
 
 ## Displays[]
 ```json
 {
     "Displays": [
-    {   
+    {
         "Id": 0,
         "Label": "Left Projector",
         "Icon": "Projector",
@@ -829,7 +828,7 @@ If true will route to all destinations in [[#Destinations[]]] try not to have a 
         "LampHoursVisible":false,
         "VideoMuteVisible":true
     },
-    {   
+    {
         "Id": 1,
         "Label": "Right Projector",
         "Icon": "Projector",
@@ -872,7 +871,7 @@ if true, shows video mute button in display/projector control. LMU typically wan
 ## DSP
 ### IP
 Data type: String
-If [[#UseExternalDsp]] is enabled will use the IP when connecting to the DSP.
+If [UseExternalDsp](#useexternaldsp) is enabled will use the IP when connecting to the DSP.
 
 ### Faders[]
 These are visible on the Audio Controls popups
@@ -917,7 +916,7 @@ I don't know exactly what these do, pretty sure it's deprecated, have it comment
 ```json
 {
     "Cameras":[
-    {   
+    {
         "Id":0,
         "Label":"Presenter Camera",
         "Location":"",
@@ -939,7 +938,7 @@ I don't know exactly what these do, pretty sure it's deprecated, have it comment
         ],
         "GroupTags":[]
     },
-    {   
+    {
         "Id":0,
         "Label":"Audience Camera",
         "Location":"",
@@ -1135,8 +1134,8 @@ Data type: Integer
 
 #### xVisibility
 Data type: Boolean[]
-If true will be shown on the respective list of [Sources](#sources[]) or [Destinations](#destinations[]) or [Faders](#faders[]) or [Cameras](#cameras[])
-Remember it's using Zero-Based numbering, so `DestinationVisibility[3]` is set to false, so that will hide 'USB Capture' which is 4th on the [[#Destinations[]]] list.
+If true will be shown on the respective list of [Sources](#sources) or [Destinations](#destinations) or [Faders](#faders) or [Cameras](#cameras)
+Remember it's using Zero-Based numbering, so `DestinationVisibility[3]` is set to false, so that will hide 'USB Capture' which is 4th on the [Destinations](#destinations) list.
 
 #### Menus[]
 This is the menu list on the bottom left of the UI
