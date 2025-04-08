@@ -1,17 +1,5 @@
 # Table of Contents
-1. [[#What is JSON?]]
-2. [[#How do we utilize JSON within Crestron rooms?]]
-3. [[#LMU Config File]]
-	1. [[#Room]]
-	2. [[#DMPS]]
-	3. [[#Matrices]]
-	4. [[#Sources]]
-	5. [[#Destinations]]
-	6. [[#RoutingRules]]
-	7. [[#Displays]]
-	8. [[#DSP]]
-	9. [[#Cameras]]
-	10. [[#TouchPanels]]
+For Table of Contents click the hamburger on the top right of this preview window. 
 
 ## What is JSON?
 JSON (JavaScript Object Notation) is a lightweight data-interchange format that is easy for humans to read and write, and easy for machines to parse and generate. It is commonly used for transmitting data in web applications (e.g., between a server and a client).
@@ -66,6 +54,7 @@ Some settings you'll typically find in *most* of our config files:
 
 ## Room 
 ```json
+{
     "Room": {
         "Site": "LMU",
         "RoomName": "WHH 118",
@@ -109,7 +98,8 @@ Some settings you'll typically find in *most* of our config files:
                 "DSPFader":-1
             }
         }
-    },
+    }
+}
 ```
 
 ### Site
@@ -168,6 +158,7 @@ Sets xVolume to a fader on the DSP. See [DSP.Faders[]]()
 
 ## DMPS
 ```json
+{
     "DMPS":{
         "Note":[
             "DigitalOutputAudioSource:",
@@ -310,7 +301,8 @@ Sets xVolume to a fader on the DSP. See [DSP.Faders[]]()
                 }
             }
         }
-    },
+    }
+}
 ```
 
 ### DigitalOutputAudioSource
@@ -391,6 +383,7 @@ Sets the respective volume, to the level provided, and the mute provided to the 
 
 ## Matrices[]
 ```json
+{
     "Matrices":[
         {   
 	        "Id": 0, 
@@ -460,7 +453,8 @@ Sets the respective volume, to the level provided, and the mute provided to the 
                 "1 DM Out"
             ]
         }
-    ],
+    ]
+}
 ```
 ### Object
 #### ID
@@ -696,6 +690,7 @@ Assigns destination to [[#Matrices[]]]
 
 ## RoutingRules[]
 ```json
+{
     "RoutingRules": [
         "Tie Source.0 Matrix.1.In.8",
         "Tie Source.1 Matrix.1.In.9",
@@ -705,7 +700,8 @@ Assigns destination to [[#Matrices[]]]
         "Tie Source.5 Matrix.1.In.6",
         "Destination.2 Follow.0",
         "Destination.2 Follow.1"
-    ],
+    ]
+}
 ```
 Data type: String[]
 Assume all are case sensitive. This isn't a list of all the rules, I don't have them all off hand would need to peek in code or look for examples, this is primarily what you'll ever use. 
@@ -777,6 +773,7 @@ In the above `Destination.2 Follow.0` is setting Destination 3 (Program Audio) t
 
 ## PresetRoutes[]
 ```json
+{
     "PresetRoutes":[
         { 
 	        "Id": 0, 
@@ -795,7 +792,8 @@ In the above `Destination.2 Follow.0` is setting Destination 3 (Program Audio) t
                 { "Source":-1, "Destination":1, "AllDestinations": true}
             ]
         }
-    ],
+    ]
+}
 ```
 ### Object
 #### ID
@@ -818,6 +816,7 @@ If true will route to all destinations in [[#Destinations[]]] try not to have a 
 
 ## Displays[]
 ```json
+{
     "Displays": [
         {   
 	        "Id": 0,
@@ -841,7 +840,8 @@ If true will route to all destinations in [[#Destinations[]]] try not to have a 
             "LampHoursVisible":false,
             "VideoMuteVisible":true
         }
-    ],
+    ]
+}
 ```
 ### Object
 #### ID
@@ -915,6 +915,7 @@ I don't know exactly what these do, pretty sure it's deprecated, have it comment
 
 ## Cameras[]
 ```json
+{
     "Cameras":[
         {   
 	        "Id":0,
@@ -960,7 +961,8 @@ I don't know exactly what these do, pretty sure it's deprecated, have it comment
             ],
             "GroupTags":[]
         }
-    ],
+    ]
+}
 ```
 ### Object
 #### ID
@@ -1133,7 +1135,7 @@ Data type: Integer
 
 #### xVisibility
 Data type: Boolean[]
-If true will be shown on the respective list of [[#Sources[]]] or [[#Destinations[]]] or [[#Faders[]]] or [[#Cameras[]]]
+If true will be shown on the respective list of [Sources](#sources[]) or [Destinations](#destinations[]) or [Faders](#faders[]) or [Cameras](#cameras[])
 Remember it's using Zero-Based numbering, so `DestinationVisibility[3]` is set to false, so that will hide 'USB Capture' which is 4th on the [[#Destinations[]]] list.
 
 #### Menus[]
